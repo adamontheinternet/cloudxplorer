@@ -101,11 +101,20 @@ environments {
 
 // log4j configuration
 log4j = {
-    // Example of changing the log pattern for the default console appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
+    def catalinaBase = System.properties.getProperty('catalina.base')
+    if (!catalinaBase) catalinaBase = 'target/classes'   // default case
+    def logDirectory = "${catalinaBase}/logs"
+    appenders {
+//        console name:'stdout', layout:pattern(conversionPattern: '%d %c{2} %t %m%n')  // DEV ONLY
+        // set up a log file in the standard tomcat area; be sure to use .toString() with ${}
+        rollingFile name:'appLog', file:"${logDirectory}/${appName}.log".toString(), maxFileSize:'100MB', layout:pattern(conversionPattern:'%d %c{1} %-5p %t %m%n'), maxBackupIndex:10
+    }
+
+    root {
+        info 'appLog', 'stdout' // DEV ONLY
+//        info 'appLog'
+        additivity = true
+    }
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
