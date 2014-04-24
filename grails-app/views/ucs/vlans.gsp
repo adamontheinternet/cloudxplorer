@@ -9,16 +9,22 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-  <title></title>
     <meta name="layout" content="main">
+    <title>${ucsInstance.ip} VLANs</title>
 </head>
 <body>
-<h1>VLANs for UCS <g:link controller="ucs" action="show" id="${ucsInstance?.id}">${ucsInstance.ip}</g:link></h1>
+<div class="nav" role="navigation">
+    <ul>
+        <li><g:link class="show" action="show" id="${ucsInstance.id}">Back to ${ucsInstance.ip}</g:link></li>
+    </ul>
+</div>
+
 <g:if test="${error}">
     <ul class="errors" role="alert">
         <li>${error}</li>
     </ul>
 </g:if>
+
 <table>
     <tr><th>ID</th><th>Name</th></tr>
     <g:each in="${vlans}" var="vlan">

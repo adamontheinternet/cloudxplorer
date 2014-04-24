@@ -11,6 +11,7 @@
 		<a href="#show-ucs" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
             <ul>
+                <li><g:link action="index">Back to all UCS</g:link></li>
                 <li><g:link class="list" action="blades" resource="${ucsInstance}"><g:message code="default.blades.label" default="Blades" /></g:link></li>
                 <li><g:link class="list" action="servers" resource="${ucsInstance}"><g:message code="default.servers.label" default="Servers" /></g:link></li>
                 <li><g:link class="list" action="vlans" resource="${ucsInstance}"><g:message code="default.vlans.label" default="Vlans" /></g:link></li>
@@ -42,14 +43,12 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${ucsInstance?.connectionVerified}">
 				<li class="fieldcontain">
 					<span id="connectionVerified-label" class="property-label"><g:message code="ucs.connectionVerified.label" default="Connection Verified" /></span>
 					
-						<span class="property-value" aria-labelledby="connectionVerified-label"><g:formatBoolean boolean="${ucsInstance?.connectionVerified}" /></span>
+						<span class="property-value" aria-labelledby="connectionVerified-label"><g:if test="${ucsInstance.connectionVerified}"><img src="${resource(dir: 'images', file: 'AlertNormal_16.png')}" alt="CloudXplorer"/></g:if><g:else><img src="${resource(dir: 'images', file: 'AlertCritical.gif')}" alt="CloudXplorer"/></g:else></span>
 					
 				</li>
-				</g:if>
 
 			</ol>
 			<g:form url="[resource:ucsInstance, action:'delete']" method="DELETE">

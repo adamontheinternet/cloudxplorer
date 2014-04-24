@@ -84,8 +84,14 @@
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div id="page-body" role="main">
             <h1>Welcome to Cloud Xplorer</h1>
-            <p>Explore configuration of the cloud.</p>
+            <p>Explore configuration of the cloud.<a href="/CloudXplorer/credential">Create credentials and start exploring!</a></p>
 
+            <a href="/CloudXplorer/ucs"><img src="${resource(dir: 'images', file: 'cisco_ucs_manager_small.png')}" alt="UcsLogo"/></a>
+            <a href="/CloudXplorer/switch"><img src="${resource(dir: 'images', file: 'cisco_switch_small.png')}" alt="SwitchLogo"/></a>
+            <a href="/CloudXplorer/vcenter"><img src="${resource(dir: 'images', file: 'vcenter_server_logo2.png')}" alt="VcenterLogo"/></a>
+
+
+             <%--
             <div id="controller-list" role="navigation">
                 <h2>Available Controllers:</h2>
                 <ul>
@@ -94,6 +100,7 @@
                     </g:each>
                 </ul>
             </div>
+            --%>
         </div>
 	</body>
 </html>

@@ -38,9 +38,9 @@
 						<td><g:link action="show" id="${ucsInstance.id}">${fieldValue(bean: ucsInstance, field: "ip")}</g:link></td>
 					
 						<td>${fieldValue(bean: ucsInstance, field: "credential")}</td>
-					
-						<td><g:formatBoolean boolean="${ucsInstance.connectionVerified}" /></td>
-					
+
+                        <td><g:if test="${ucsInstance.connectionVerified}"><img src="${resource(dir: 'images', file: 'AlertNormal_16.png')}" alt="CloudXplorer"/></g:if><g:else><img src="${resource(dir: 'images', file: 'AlertCritical.gif')}" alt="CloudXplorer"/></g:else></td>
+
 					</tr>
 				</g:each>
 				</tbody>
