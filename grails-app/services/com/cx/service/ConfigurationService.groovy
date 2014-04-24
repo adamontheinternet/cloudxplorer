@@ -1,7 +1,7 @@
 package com.cx.service
 
+import grails.converters.JSON
 import grails.transaction.Transactional
-import groovy.json.JsonSlurper
 import groovy.text.Template
 import groovy.text.XmlTemplateEngine
 
@@ -21,7 +21,8 @@ class ConfigurationService {
         try {
             log.info "Load Config.json"
             String json = this.class.classLoader.getResourceAsStream("Config.json")?.text?.trim()
-            jsonObject = new JsonSlurper().parseText(json)
+//            jsonObject = new JsonSlurper().parseText(json)
+            jsonObject = JSON.parse(json)
             log.info "System config parsed $jsonObject"
 
             // UCS

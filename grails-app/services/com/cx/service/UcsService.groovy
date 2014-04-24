@@ -107,8 +107,6 @@ class UcsService {
 
     public Collection<Blade> getBlades(Ucs ucs) throws Exception {
         try {
-            if(configurationService.isUseCache()) ucs.blades
-
             String cookie =  createOrGetSession(ucs)
             RESTClient restClient = createOrGetRestClient(ucs)
 
@@ -136,8 +134,6 @@ class UcsService {
 
     Collection<Vlan> getVlans(Ucs ucs) {
         try {
-            if(configurationService.isUseCache()) ucs.vlans
-
             String cookie = createOrGetSession(ucs)
             RESTClient restClient = createOrGetRestClient(ucs)
 
@@ -164,8 +160,6 @@ class UcsService {
 
     Collection<Server> getServers(Ucs ucs) {
         try {
-            if(configurationService.isUseCache()) ucs.servers
-
             String cookie = createOrGetSession(ucs)
             RESTClient restClient = createOrGetRestClient(ucs)
 

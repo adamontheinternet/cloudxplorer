@@ -17,13 +17,23 @@
     },
     "bootstrap": {
         "credentials": [
-            { "name": "laplaa_D1", "username": "ucs-glo\\laplaa", "password": "Danger0us1" }
+            { "name": "laplaa_D1", "username": "ucs-glo\\laplaa", "password": "Danger0us1" },
+            { "name": "admin_D1", "username": "admin", "password": "Danger0us1" },
+            { "name": "admin_D2", "username": "admin", "password": "Danger0us2" }
         ],
         "ucses": [
             { "ip": "10.247.84.164", "credential_ref": "laplaa_D1" },
             { "ip": "10.247.84.170", "credential_ref": "laplaa_D1" },
             { "ip": "10.247.84.173", "credential_ref": "laplaa_D1" },
             { "ip": "10.247.84.176", "credential_ref": "laplaa_D1" }
-        ]
+        ],
+        "switches": [
+           { "ip": "10.247.84.30", "credential_ref": "admin_D1" },
+           { "ip": "10.247.84.31", "credential_ref": "admin_D1" },
+           { "ip": "10.247.84.52", "credential_ref": "admin_D1" },
+           { "ip": "10.247.84.53", "credential_ref": "admin_D1" },
+           { "ip": "10.247.84.50", "credential_ref": "admin_D2" },
+           { "ip": "10.247.84.51", "credential_ref": "admin_D2" }
+       ]
     }
 }

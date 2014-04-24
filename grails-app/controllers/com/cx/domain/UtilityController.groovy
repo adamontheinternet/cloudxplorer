@@ -1,10 +1,11 @@
 package com.cx.domain
 
 import com.cx.service.UtilityService
+import grails.converters.JSON
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
-class UtlityController {
+class UtilityController {
     UtilityService utilityService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -17,7 +18,7 @@ class UtlityController {
         render "Bootstrap data created"
     }
 
-    def config()  {
+    def config() {
         render utilityService.getJsonConfig()
     }
 }
