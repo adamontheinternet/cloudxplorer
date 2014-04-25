@@ -45,8 +45,7 @@
 			
 				<li class="fieldcontain">
 					<span id="connectionVerified-label" class="property-label"><g:message code="ucs.connectionVerified.label" default="Connection Verified" /></span>
-					
-						<span class="property-value" aria-labelledby="connectionVerified-label"><g:if test="${ucsInstance.connectionVerified}"><img src="${resource(dir: 'images', file: 'AlertNormal_16.png')}" alt="CloudXplorer"/></g:if><g:else><img src="${resource(dir: 'images', file: 'AlertCritical.gif')}" alt="CloudXplorer"/></g:else></span>
+					<span class="property-value" aria-labelledby="connectionVerified-label"><g:if test="${ucsInstance.connectionVerified}"><img src="${resource(dir: 'images', file: 'AlertNormal_16.png')}" alt="CloudXplorer"/></g:if><g:else><img src="${resource(dir: 'images', file: 'AlertCritical.gif')}" alt="CloudXplorer"/></g:else></span>
 					
 				</li>
 

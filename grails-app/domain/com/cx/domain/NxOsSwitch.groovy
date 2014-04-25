@@ -7,11 +7,13 @@ package com.cx.domain
  * Time: 2:03 PM
  * To change this template use File | Settings | File Templates.
  */
-class Switch extends CloudElement {
+class NxOsSwitch extends CloudElement {
     static constraints = {
     }
 
+    static hasMany = [zonesets:Zoneset, vsans:Vsan]
+
     String getType() {
-        "Switch"
+        "NX-OS Switch"
     }
 }

@@ -89,7 +89,7 @@ class UcsService {
 
 
     /*
-    Data finders and publically accessible services
+    Data finders and public accessible services
      */
     public boolean verifyConnection(Ucs ucs) {
         try {

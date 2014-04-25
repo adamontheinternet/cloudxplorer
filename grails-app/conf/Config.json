@@ -11,9 +11,11 @@
     },
     "switch": {
         "commands": [
+            { "file": "Version.txt" },
             { "file": "Zones.txt" },
             { "file": "Vsans.txt" }
-        ]
+        ],
+        "version": "Cisco Nexus Operating System (NX-OS) Software"
     },
     "bootstrap": {
         "credentials": [

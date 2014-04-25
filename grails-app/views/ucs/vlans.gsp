@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <title>${ucsInstance.ip} VLANs</title>
+    <title>${ucsInstance} VLANs</title>
 </head>
 <body>
 <div class="nav" role="navigation">

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: alaplante
-  Date: 3/27/14
-  Time: 2:42 PM
+  Date: 4/8/14
+  Time: 11:51 AM
   To change this template use File | Settings | File Templates.
 --%>
 
@@ -10,12 +10,12 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <title>${ucsInstance} Blades</title>
+    <title>${nxOsSwitchInstance} VSANs</title>
 </head>
 <body>
 <div class="nav" role="navigation">
     <ul>
-        <li><g:link class="show" action="show" id="${ucsInstance.id}">Back to ${ucsInstance.ip}</g:link></li>
+        <li><g:link class="show" action="show" id="${nxOsSwitchInstance.id}">Back to ${nxOsSwitchInstance.ip}</g:link></li>
     </ul>
 </div>
 
@@ -26,11 +26,10 @@
 </g:if>
 
 <table>
-    <tr><th>DN</th><th>Assigned To</th></tr>
-    <g:each in="${blades}" var="blade">
-        <tr><td>${blade.dn}</td><td>${blade.assignedTo}</td></tr>
+    <tr><th>VSAN</th><th>Name</th></tr>
+    <g:each in="${vsans}" var="vsan">
+        <tr><td>${vsan.vsan}</td><td>${vsan.name}</td></tr>
     </g:each>
 </table>
-
 </body>
 </html>

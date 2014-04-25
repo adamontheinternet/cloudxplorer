@@ -130,3 +130,4 @@ log4j = {
 }
 
 grails.converters.json.pretty.print = true
+grails.gorm.failOnError = true

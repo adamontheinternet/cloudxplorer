@@ -8,10 +8,16 @@ import groovy.text.XmlTemplateEngine
 
 @Transactional
 class ConfigurationService {
+
     private jsonObject
+
     // UCS
     private Map<String,Template> templates = [:]
     private String ucsUrl
+
+    // NxOsSwitch
+    private Map<String,String> commands = [:]
+    private String allowedVersion
 
     public ConfigurationService() throws Exception {
         initialize()
@@ -21,7 +27,6 @@ class ConfigurationService {
         try {
             log.info "Load Config.json"
             String json = this.class.classLoader.getResourceAsStream("Config.json")?.text?.trim()
-//            jsonObject = new JsonSlurper().parseText(json)
             jsonObject = JSON.parse(json)
             log.info "System config parsed $jsonObject"
 
@@ -37,6 +42,16 @@ class ConfigurationService {
                 templates[file] = template
                 log.info "Loaded template $file $templateXmlContents"
             }
+
+            // NxOsSwitch
+            jsonObject.switch.commands.each { def jsonCommand ->
+                String file = jsonCommand.file.trim()
+                log.info "switch.command.file $file"
+                String cmd = this.class.classLoader.getResourceAsStream("commands/$file").text.trim()
+                commands[file] = cmd
+                log.info "Loaded command $file $cmd"
+            }
+            allowedVersion = jsonConfig.switch.version
         } catch(Exception e) {
             log.error "Exception loading Config.json $e"
             throw e
@@ -56,5 +71,16 @@ class ConfigurationService {
         Template template = templates[templateName]
         if(!template) throw new Exception("template.file invalid: $templateName")
         template
+    }
+
+    public String getSwitchCommand(String commandName) {
+        String command = commands[commandName]
+        if(!command) throw new Exception("command.file invalid: $commandName")
+        command
+    }
+
+    public String getSwitchVersion() {
+        if(!allowedVersion || allowedVersion == "") throw new Exception("switch.verson invalid: $allowedVersion")
+        else allowedVersion
     }
 }
