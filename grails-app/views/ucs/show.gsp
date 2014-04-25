@@ -15,7 +15,7 @@
                 <li><g:link class="list" action="blades" resource="${ucsInstance}"><g:message code="default.blades.label" default="Blades" /></g:link></li>
                 <li><g:link class="list" action="servers" resource="${ucsInstance}"><g:message code="default.servers.label" default="Servers" /></g:link></li>
                 <li><g:link class="list" action="vlans" resource="${ucsInstance}"><g:message code="default.vlans.label" default="Vlans" /></g:link></li>
-
+                <li><g:link class="list" action="vsans" resource="${ucsInstance}"><g:message code="default.vsans.label" default="Vsans" /></g:link></li>
             </ul>
         </div>
 		<div id="show-ucs" class="content scaffold-show" role="main">

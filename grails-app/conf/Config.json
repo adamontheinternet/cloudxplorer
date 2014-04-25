@@ -6,6 +6,7 @@
             { "file": "Logout.xml" },
             { "file": "Blades.xml" },
             { "file": "Vlans.xml" },
+            { "file": "Vsans.xml" },
             { "file": "Servers.xml" }
         ]
     },

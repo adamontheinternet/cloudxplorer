@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <title>${ucsInstance} VLANs</title>
+    <title>${ucsInstance} VSANs</title>
 </head>
 <body>
 <div class="nav" role="navigation">
@@ -26,9 +26,9 @@
 </g:if>
 
 <table>
-    <tr><th>ID</th><th>Name</th></tr>
-    <g:each in="${vlans}" var="vlan">
-        <tr><td>${vlan.networkId}</td><td>${vlan.name}</td></tr>
+    <tr><th>ID</th><th>Name</th><th>DN</th><th>Switch</th></tr>
+    <g:each in="${vsans}" var="vsan">
+        <tr><td>${vsan.networkId}</td><td>${vsan.name}</td><td>${vsan.dn}</td><td>${vsan.switchId}</td></tr>
     </g:each>
 </table>
 </body>

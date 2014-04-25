@@ -134,13 +134,32 @@ class UcsController {
             log.info "Find vlans for ${ucsInstance.ip}"
             if(ucsInstance.connectionVerified) {
                 Collection<Vlan> vlans = ucsService.getVlans(ucsInstance)
-                returnMap["vlans"] = vlans.sort{it.id}
+                returnMap["vlans"] = vlans.sort{it.networkId}
             } else {
                 log.info "Connection not verified for UCS ${ucsInstance.ip}"
                 returnMap["error"] = "Connection not verified for UCS ${ucsInstance.ip}"
             }
         } catch(Exception e) {
             log.error "vlans error $e"
+            returnMap["error"] = e.message
+        }
+        returnMap
+    }
+
+    @Transactional
+    def vsans(Ucs ucsInstance) {
+        def returnMap = [ucsInstance:ucsInstance]
+        try {
+            log.info "Find vsans for ${ucsInstance.ip}"
+            if(ucsInstance.connectionVerified) {
+                Collection<Map> vsans = ucsService.getVsans(ucsInstance)
+                returnMap["vsans"] = vsans.sort{it.networkId}
+            } else {
+                log.info "Connection not verified for UCS ${ucsInstance.ip}"
+                returnMap["error"] = "Connection not verified for UCS ${ucsInstance.ip}"
+            }
+        } catch(Exception e) {
+            log.error "vsans error $e"
             returnMap["error"] = e.message
         }
         returnMap
