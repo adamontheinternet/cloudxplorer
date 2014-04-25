@@ -30,7 +30,7 @@ class UtilityService {
                 ucs.properties = jsonUcs
                 ucs.credential = Credential.findByName(jsonUcs.credential_ref)
                 ucs.credential.addToCloudElements(ucs)
-                ucs.connectionVerified = ucsService.verifyConnection(ucs)
+//                ucs.connectionVerified = ucsService.verifyConnection(ucs)
                 ucs.save()
             }
         }
@@ -42,7 +42,7 @@ class UtilityService {
                 nxOsSwitch.properties = jsonSwitch
                 nxOsSwitch.credential = Credential.findByName(jsonSwitch.credential_ref)
                 nxOsSwitch.credential.addToCloudElements(nxOsSwitch)
-                nxOsSwitch.connectionVerified = nxOsSwitchService.verifyConnection(nxOsSwitch)
+//                nxOsSwitch.connectionVerified = nxOsSwitchService.verifyConnection(nxOsSwitch)
                 nxOsSwitch.save()
             }
         }

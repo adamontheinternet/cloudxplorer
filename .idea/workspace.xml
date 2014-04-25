@@ -2,36 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de069923-c19d-4042-a91e-401305882719" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/cx/domain/NxOsSwitchControllerSpec.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/services/com/cx/service/NxOsSwitchService.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Port.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/cx/domain/PortSpec.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/com/cx/util/SshTool.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/conf/commands/Version.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Vsan.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/cx/domain/VsanSpec.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/conf/commands/Vsans.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Zone.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/cx/domain/ZoneSpec.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/conf/commands/Zones.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Zoneset.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/com/cx/domain/ZonesetSpec.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/nxOsSwitch/vsans.gsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/nxOsSwitch/zones.gsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grails-app/services/com/cx/service/SwitchService.groovy" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Switch.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/cx/domain/NxOsSwitch.groovy" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/test/unit/com/cx/service/SwitchServiceSpec.groovy" afterPath="$PROJECT_DIR$/test/unit/com/cx/service/NxOsSwitchServiceSpec.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/Config.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/Config.json" afterPath="$PROJECT_DIR$/grails-app/conf/Config.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/cx/service/ConfigurationService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/cx/service/ConfigurationService.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/cx/service/UcsService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/cx/service/UcsService.groovy" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/groovy/com/cx/util/SshTool.groovy" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/CredentialController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/CredentialController.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/cx/domain/NxOsSwitch.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/cx/domain/NxOsSwitch.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/NxOsSwitchController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/NxOsSwitchController.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Ucs.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Ucs.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/UcsController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/UcsController.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/cx/service/UtilityService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/cx/service/UtilityService.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/ucs/blades.gsp" afterPath="$PROJECT_DIR$/grails-app/views/ucs/blades.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/ucs/edit.gsp" afterPath="$PROJECT_DIR$/grails-app/views/ucs/edit.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/index.gsp" afterPath="$PROJECT_DIR$/grails-app/views/index.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/ucs/servers.gsp" afterPath="$PROJECT_DIR$/grails-app/views/ucs/servers.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/ucs/show.gsp" afterPath="$PROJECT_DIR$/grails-app/views/ucs/show.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/ucs/vlans.gsp" afterPath="$PROJECT_DIR$/grails-app/views/ucs/vlans.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CloudXplorer.iws" />
@@ -43,8 +20,8 @@
     <file path="/main.css" changelist="de069923-c19d-4042-a91e-401305882719" time="1398183932771" ignored="false" />
     <file path="/Credential.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398270920552" ignored="false" />
     <file path="/fragment.java" changelist="de069923-c19d-4042-a91e-401305882719" time="1398189291835" ignored="false" />
-    <file path="/CloudElement.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398285797015" ignored="false" />
-    <file path="/Ucs.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398284704282" ignored="false" />
+    <file path="/CloudElement.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398460491361" ignored="false" />
+    <file path="/Ucs.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398460481588" ignored="false" />
     <file path="/Switch.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398372347795" ignored="false" />
     <file path="/Dummy.txt" changelist="de069923-c19d-4042-a91e-401305882719" time="1398453636057" ignored="false" />
     <file path="/Server.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398194224080" ignored="false" />
@@ -55,12 +32,12 @@
     <file path="/SystemConfigService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398282117666" ignored="false" />
     <file path="/BootStrap.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398288357046" ignored="false" />
     <file path="$PROJECT_DIR$/target/work/web.xml.tmp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398198624517" ignored="false" />
-    <file path="/UcsController.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398287268114" ignored="false" />
+    <file path="/UcsController.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398461773200" ignored="false" />
     <file path="/UcsResponseInterpreter.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398276994458" ignored="false" />
     <file path="/UcsResponseInterpreterService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398286760527" ignored="false" />
     <file path="/UtlityController.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398288303950" ignored="false" />
     <file path="/show.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398451702790" ignored="false" />
-    <file path="/CredentialController.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398285073030" ignored="false" />
+    <file path="/CredentialController.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398461329286" ignored="false" />
     <file path="/vlans.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398357261031" ignored="false" />
     <file path="/blades.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398356795374" ignored="false" />
     <file path="/servers.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398357215039" ignored="false" />
@@ -75,13 +52,14 @@
     <file path="/Vsan.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398442104411" ignored="false" />
     <file path="/vsans.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398442453278" ignored="false" />
     <file path="/zones.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398442469145" ignored="false" />
-    <file path="/NxOsSwitchController.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398456061893" ignored="false" />
-    <file path="/NxOsSwitch.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398442782728" ignored="false" />
+    <file path="/NxOsSwitchController.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398461137400" ignored="false" />
+    <file path="/NxOsSwitch.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398459713494" ignored="false" />
     <file path="$USER_HOME$/Work/SVN/4.1.0.X/core/modules/slm/grails-app/services/uim/slm/service/ManagedServiceService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398451128212" ignored="false" />
     <file path="/BuildConfig.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398454085286" ignored="false" />
     <file path="/NxOsSwitchService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398456190091" ignored="false" />
     <file path="/NxOsSwitchResponseInterpreterService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398455709876" ignored="false" />
     <file path="/SshService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398456436050" ignored="false" />
+    <file path="/CloudElementType.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398460456473" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,21 +121,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="NxOsSwitchService.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/NxOsSwitchService.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="50" selection-start="845" selection-end="845" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#24#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="NxOsSwitchController.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/NxOsSwitchController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="0" selection-start="1971" selection-end="1971" vertical-scroll-proportion="-23.47826">
+            <state line="124" column="45" selection-start="3894" selection-end="3964" vertical-scroll-proportion="-12.913043">
               <folding>
                 <element signature="e#23#62#0" expanded="true" />
               </folding>
@@ -165,30 +132,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UtilityService.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/UtilityService.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="21" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SshService.groovy" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/SshService.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="39" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.44407895">
-              <folding>
-                <element signature="e#24#54#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UcsController.groovy" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="UcsController.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/UcsController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="81" selection-start="1645" selection-end="1718" vertical-scroll-proportion="-35.217392">
+            <state line="153" column="25" selection-start="4516" selection-end="4516" vertical-scroll-proportion="0.6625767">
               <folding />
             </state>
           </provider>
@@ -212,22 +159,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/views/ucs/vlans.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/ucs/servers.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/ucs/blades.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/nxOsSwitch/create.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/nxOsSwitch/index.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/nxOsSwitch/show.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/nxOsSwitch/edit.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/ucs/edit.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/index.gsp" />
         <option value="$PROJECT_DIR$/grails-app/conf/commands/Version.txt" />
         <option value="$PROJECT_DIR$/grails-app/conf/Config.json" />
         <option value="$PROJECT_DIR$/grails-app/services/com/cx/service/ConfigurationService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/cx/service/NxOsSwitchResponseInterpreterService.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/NxOsSwitchController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/cx/service/NxOsSwitchService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/cx/service/SshService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/cx/service/UtilityService.groovy" />
+        <option value="$PROJECT_DIR$/src/groovy/com/cx/enum/CloudElementType.groovy" />
+        <option value="$PROJECT_DIR$/src/groovy/com/cx/enums/CloudElementType.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Ucs.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/com/cx/domain/CloudElement.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/com/cx/domain/NxOsSwitch.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/NxOsSwitchController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/CredentialController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/UcsController.groovy" />
       </list>
     </option>
   </component>
@@ -485,14 +432,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32880434" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22358592" sideWeight="0.57608694" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22358592" sideWeight="0.6367754" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971016" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6415608" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42391303" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36322463" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -563,41 +510,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/views/nxOsSwitch/index.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="77" selection-start="880" selection-end="880" vertical-scroll-proportion="-6.382979">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/nxOsSwitch/show.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="28" selection-start="492" selection-end="492" vertical-scroll-proportion="-3.8297873">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/nxOsSwitch/vsans.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="123" selection-start="372" selection-end="487" vertical-scroll-proportion="0.4022082">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/nxOsSwitch/edit.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="131" selection-start="623" selection-end="623" vertical-scroll-proportion="-3.8297873">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/ucs/edit.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="99" selection-start="561" selection-end="561" vertical-scroll-proportion="-3.8297873">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/index.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="98" column="72" selection-start="2557" selection-end="2557" vertical-scroll-proportion="-18.625">
@@ -638,51 +550,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/UcsController.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/SshService.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="81" selection-start="1645" selection-end="1718" vertical-scroll-proportion="-35.217392">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/UtilityService.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="21" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/groovy/com/cx/util/SshTool.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="11" selection-start="292" selection-end="2232" vertical-scroll-proportion="0.92007434">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/NxOsSwitchController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="1971" selection-end="1971" vertical-scroll-proportion="-23.47826">
+        <state line="36" column="37" selection-start="1237" selection-end="1237" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#23#62#0" expanded="true" />
+            <element signature="e#24#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/NxOsSwitchService.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="50" selection-start="845" selection-end="845" vertical-scroll-proportion="0.0">
+        <state line="28" column="19" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#24#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/SshService.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/credential/show.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="39" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.44407895">
+        <state line="52" column="0" selection-start="2349" selection-end="2349" vertical-scroll-proportion="-3.5106382">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/UtilityService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="36" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/Ucs.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="34" selection-start="205" selection-end="205" vertical-scroll-proportion="-3.3">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/NxOsSwitch.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="22" selection-end="22" vertical-scroll-proportion="-0.3">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/nxOsSwitch/vsans.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="26" selection-start="390" selection-end="390" vertical-scroll-proportion="-2.9315069">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/CloudElement.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="20" selection-start="314" selection-end="314" vertical-scroll-proportion="-3.9">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/CredentialController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="45" selection-start="2483" selection-end="2483" vertical-scroll-proportion="-38.130436">
           <folding>
-            <element signature="e#24#54#0" expanded="true" />
+            <element signature="e#23#62#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/NxOsSwitchController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="45" selection-start="3894" selection-end="3964" vertical-scroll-proportion="-12.913043">
+          <folding>
+            <element signature="e#23#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/UcsController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="25" selection-start="4516" selection-end="4516" vertical-scroll-proportion="0.6625767">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -693,7 +651,7 @@
         <entry key="CloudXplorer">
           <value>
             <GrailsSettings>
-              <option name="buildConfigCrc" value="-2092035619" />
+              <option name="buildConfigCrc" value="1986743197" />
               <option name="pluginDependenciesCrc" value="1344413069" />
               <option name="properties">
                 <map>

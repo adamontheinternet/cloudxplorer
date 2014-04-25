@@ -7,7 +7,7 @@ class Ucs extends CloudElement {
     static constraints = {
     }
 
-    String getType() {
+    public String getType() {
         "UCS"
     }
 }

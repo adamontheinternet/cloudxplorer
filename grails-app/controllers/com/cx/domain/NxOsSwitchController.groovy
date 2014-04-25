@@ -110,36 +110,39 @@ class NxOsSwitchController {
 
     @Transactional
     def vsans(NxOsSwitch nxOsSwitchInstance) {
+        def returnMap = [nxOsSwitchInstance:nxOsSwitchInstance]
         try {
             if(nxOsSwitchInstance.connectionVerified) {
                 Collection<Vsan> vsans = nxOsSwitchService.getVsans(nxOsSwitchInstance)
-                [vsans:vsans, nxOsSwitchInstance:nxOsSwitchInstance]
+                returnMap["vsans"] = vsans
             } else {
                 log.info "Connection not verified for $nxOsSwitchInstance"
-                [error:"Connection not verified for $nxOsSwitchInstance"]
+                returnMap["error"] = "Connection not verified for $nxOsSwitchInstance"
             }
 
         } catch(Exception e) {
             log.error "vsans error $e"
-            [error:e.message]
+            returnMap["error"] = e.message
         }
-
+        returnMap
     }
 
     @Transactional
     def zones(NxOsSwitch nxOsSwitchInstance) {
+        def returnMap = [nxOsSwitchInstance:nxOsSwitchInstance]
         try {
             if(nxOsSwitchInstance.connectionVerified) {
                 Collection<Zoneset> zonesets = nxOsSwitchService.getZones(nxOsSwitchInstance)
-                [zonesets:zonesets, nxOsSwitchInstance:nxOsSwitchInstance]
+                returnMap["zonesets"] = zonesets
             } else {
                 log.info "Connection not verified for $nxOsSwitchInstance"
-                [error:"Connection not verified for switch $nxOsSwitchInstance"]
+                returnMap["error"] = "Connection not verified for switch $nxOsSwitchInstance"
             }
 
         } catch(Exception e) {
             log.error "zones error $e"
-            [error:e.message]
+            returnMap["error"] = e.message
         }
+        returnMap
     }
 }

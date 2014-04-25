@@ -13,7 +13,7 @@ class NxOsSwitch extends CloudElement {
 
     static hasMany = [zonesets:Zoneset, vsans:Vsan]
 
-    String getType() {
+    public String getType() {
         "NX-OS Switch"
     }
 }

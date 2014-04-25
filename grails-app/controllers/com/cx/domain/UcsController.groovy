@@ -110,37 +110,59 @@ class UcsController {
 
     @Transactional
     def blades(Ucs ucsInstance) {
-        log.info "Find blades for ${ucsInstance.ip}"
-        if(ucsInstance.connectionVerified) {
-            Collection<Blade> blades = ucsService.getBlades(ucsInstance)
-            [blades:blades.sort{it.dn}, ucsInstance:ucsInstance]
-        } else {
-            log.info "Connection not verified for UCS ${ucsInstance.ip}"
-            [error:"Connection not verified for UCS ${ucsInstance.ip}"]
+        def returnMap = [ucsInstance:ucsInstance]
+        try {
+            log.info "Find blades for ${ucsInstance.ip}"
+            if(ucsInstance.connectionVerified) {
+                Collection<Blade> blades = ucsService.getBlades(ucsInstance)
+                returnMap["blades"] = blades.sort{it.dn}
+            } else {
+                log.info "Connection not verified for UCS ${ucsInstance.ip}"
+                returnMap["error"] = "Connection not verified for UCS ${ucsInstance.ip}"
+            }
+        } catch(Exception e) {
+            log.error "blades error $e"
+            returnMap["error"] = e.message
         }
+        returnMap
     }
 
     @Transactional
     def vlans(Ucs ucsInstance) {
-        log.info "Find vlans for ${ucsInstance.ip}"
-        if(ucsInstance.connectionVerified) {
-            Collection<Vlan> vlans = ucsService.getVlans(ucsInstance)
-            [vlans:vlans.sort{it.id}, ucsInstance:ucsInstance]
-        } else {
-            log.info "Connection not verified for UCS ${ucsInstance.ip}"
-            [error:"Connection not verified for UCS ${ucsInstance.ip}"]
+        def returnMap = [ucsInstance:ucsInstance]
+        try {
+            log.info "Find vlans for ${ucsInstance.ip}"
+            if(ucsInstance.connectionVerified) {
+                Collection<Vlan> vlans = ucsService.getVlans(ucsInstance)
+                returnMap["vlans"] = vlans.sort{it.id}
+            } else {
+                log.info "Connection not verified for UCS ${ucsInstance.ip}"
+                returnMap["error"] = "Connection not verified for UCS ${ucsInstance.ip}"
+            }
+        } catch(Exception e) {
+            log.error "vlans error $e"
+            returnMap["error"] = e.message
         }
+        returnMap
+
     }
 
     @Transactional
     def servers(Ucs ucsInstance) {
-        log.info "Find servers for ${ucsInstance.ip}"
-        if(ucsInstance.connectionVerified) {
-            Collection<Server> servers = ucsService.getServers(ucsInstance)
-            [servers:servers.sort{it.dn}, ucsInstance:ucsInstance]
-        } else {
-            log.info "Connection not verified for UCS ${ucsInstance.ip}"
-            [error:"Connection not verified for UCS ${ucsInstance.ip}"]
+        def returnMap = [ucsInstance:ucsInstance]
+        try {
+            log.info "Find servers for ${ucsInstance.ip}"
+            if(ucsInstance.connectionVerified) {
+                Collection<Server> servers = ucsService.getServers(ucsInstance)
+                returnMap["servers"] = servers.sort{it.dn}
+            } else {
+                log.info "Connection not verified for UCS ${ucsInstance.ip}"
+                returnMap["error"] = "Connection not verified for UCS ${ucsInstance.ip}"
+            }
+        } catch(Exception e) {
+            log.error "servers error $e"
+            returnMap["error"] = e.message
         }
+        returnMap
     }
 }

@@ -1,12 +1,16 @@
 package com.cx.domain
 
-
+import com.cx.service.NxOsSwitchService
+import com.cx.service.UcsService
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class CredentialController {
+
+    UcsService ucsService
+    NxOsSwitchService nxOsSwitchService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -23,7 +27,15 @@ class CredentialController {
         respond new Credential(params)
     }
 
-    // TODO - Verify connections once credential is updated
+    private verifyConnections(Credential credentialInstance) {
+        // Refactor to factory pattern
+        credentialInstance.cloudElements.each { CloudElement cloudElement ->
+            if(cloudElement.getType() == "UCS") cloudElement.connectionVerified = ucsService.verifyConnection(cloudElement)
+            else if(cloudElement.getType() == "NX-OS Switch") cloudElement.connectionVerified = nxOsSwitchService.verifyConnection(cloudElement)
+            else log.info "Unknown cloud element ${cloudElement.type}"
+            cloudElement.save()
+        }
+    }
 
     @Transactional
     def save(Credential credentialInstance) {
@@ -36,6 +48,8 @@ class CredentialController {
             respond credentialInstance.errors, view:'create'
             return
         }
+
+        verifyConnections(credentialInstance)
 
         credentialInstance.save flush:true
 
@@ -63,6 +77,8 @@ class CredentialController {
             respond credentialInstance.errors, view:'edit'
             return
         }
+
+        verifyConnections(credentialInstance)
 
         credentialInstance.save flush:true
 
