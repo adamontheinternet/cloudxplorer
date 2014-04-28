@@ -114,7 +114,7 @@ class NxOsSwitchController {
         try {
             if(nxOsSwitchInstance.connectionVerified) {
                 Collection<Vsan> vsans = nxOsSwitchService.getVsans(nxOsSwitchInstance)
-                returnMap["vsans"] = vsans
+                returnMap["vsans"] = vsans.sort{it.vsan}
             } else {
                 log.info "Connection not verified for $nxOsSwitchInstance"
                 returnMap["error"] = "Connection not verified for $nxOsSwitchInstance"
@@ -133,7 +133,7 @@ class NxOsSwitchController {
         try {
             if(nxOsSwitchInstance.connectionVerified) {
                 Collection<Zoneset> zonesets = nxOsSwitchService.getZones(nxOsSwitchInstance)
-                returnMap["zonesets"] = zonesets
+                returnMap["zonesets"] = zonesets.sort{it.vsan}
             } else {
                 log.info "Connection not verified for $nxOsSwitchInstance"
                 returnMap["error"] = "Connection not verified for switch $nxOsSwitchInstance"
