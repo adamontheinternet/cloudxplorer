@@ -18,11 +18,17 @@
         ],
         "version": "Cisco Nexus Operating System (NX-OS) Software"
     },
+    "vcenter": {
+        "url": "https://$ip:443/sdk"
+    },
     "bootstrap": {
         "credentials": [
             { "name": "laplaa_D1", "username": "ucs-glo\\laplaa", "password": "Danger0us1" },
             { "name": "admin_D1", "username": "admin", "password": "Danger0us1" },
-            { "name": "admin_D2", "username": "admin", "password": "Danger0us2" }
+            { "name": "admin_D2", "username": "admin", "password": "Danger0us2" },
+            { "name": "Administrator_D1", "username": "Administrator", "password": "Danger0us1" },
+            { "name": "root_p", "username": "root", "password": "password" },
+            { "name": "root_d", "username": "root", "password": "dangerous" }
         ],
         "ucses": [
             { "ip": "10.247.84.164", "credential_ref": "laplaa_D1" },
@@ -37,6 +43,13 @@
            { "ip": "10.247.84.53", "credential_ref": "admin_D1" },
            { "ip": "10.247.84.50", "credential_ref": "admin_D2" },
            { "ip": "10.247.84.51", "credential_ref": "admin_D2" }
-       ]
+        ],
+        "vcenters": [
+            { "ip": "10.247.87.236", "credential_ref": "Administrator_D1" },
+            { "ip": "10.6.222.146", "credential_ref": "Administrator_D1" },
+            { "ip": "10.247.87.175", "credential_ref": "root_p" },
+            { "ip": "10.6.222.75", "credential_ref": "Administrator_D1" },
+            { "ip": "10.247.85.195", "credential_ref": "root_d" }
+        ]
     }
 }

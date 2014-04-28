@@ -40,6 +40,7 @@ grails.project.dependency.resolution = {
         mavenLocal()
         grailsCentral()
         mavenCentral()
+        mavenRepo 'http://artifactory.lab.voyence.com:8082/artifactory/repo'
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
@@ -53,6 +54,7 @@ grails.project.dependency.resolution = {
 
         compile "org.codehaus.groovy.modules.http-builder:http-builder:0.7"
         compile "ch.ethz.ganymed:ganymed-ssh2:build210"
+        compile 'vijava5120121125:vijava5120121125:vijava5120121125'
     }
 
     plugins {

@@ -19,6 +19,9 @@ class ConfigurationService {
     private Map<String,String> commands = [:]
     private String allowedVersion
 
+    // Vcenter
+    private String vcenterUrl
+
     public ConfigurationService() throws Exception {
         initialize()
     }
@@ -52,6 +55,10 @@ class ConfigurationService {
                 log.info "Loaded command $file $cmd"
             }
             allowedVersion = jsonConfig.switch.version
+
+            // vCenter
+            vcenterUrl = jsonObject.vcenter.url.trim()
+
         } catch(Exception e) {
             log.error "Exception loading Config.json $e"
             throw e
@@ -82,5 +89,10 @@ class ConfigurationService {
     public String getSwitchVersion() {
         if(!allowedVersion || allowedVersion == "") throw new Exception("switch.verson invalid: $allowedVersion")
         else allowedVersion
+    }
+
+    public String getVcenterUrl() {
+        if(!vcenterUrl || vcenterUrl == "") throw new Exception("vcenter.url invalid: $vcenterUrl")
+        else vcenterUrl
     }
 }
