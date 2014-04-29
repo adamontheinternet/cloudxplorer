@@ -4,6 +4,7 @@ import com.cx.domain.Blade
 import com.cx.domain.Server
 import com.cx.domain.Ucs
 import com.cx.domain.Vlan
+import com.cx.domain.Vsan
 import grails.transaction.Transactional
 import groovy.text.Template
 import groovyx.net.http.RESTClient
@@ -160,19 +161,24 @@ class UcsService {
 
     Collection<Map> getVsans(Ucs ucs) {
         try {
-            Collection<Map> vsans = []
             String cookie = createOrGetSession(ucs)
             RESTClient restClient = createOrGetRestClient(ucs)
 
             String body = getTemplate("Vsans.xml").make([cookie: cookie]).toString()
             def response = restClient.post(contentType: XML,requestContentType: XML,body: body)
-            response.data.outConfigs.fabricVsan.each { def vsan ->
-                vsans << [dn:vsan.@dn.text(), name:vsan.@name.text(), switchId:vsan.@switchId.text(),
-                        networkId:vsan.@id.text()]
+
+            Collection<Vsan> vsans = ucsResponseInterpreterService.interpretVsansResponse(response)
+            ucs.vsans*.delete()
+            ucs.vsans.clear()
+            vsans.each { Vsan vsan ->
+                ucs.addToVsans(vsan)
+                vsan.ucs = ucs
+                vsan.save()
             }
-            vsans
+            ucs.save()
+            ucs.vsans
         } catch(Exception e) {
-            log.error "Error getting vlans for ucs ${ucs.ip} $e"
+            log.error "Error getting vsans for ucs ${ucs.ip} $e"
             throw e
         } finally  {
             destroySession(ucs) // Inefficient

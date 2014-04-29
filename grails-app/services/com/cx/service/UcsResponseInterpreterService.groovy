@@ -3,6 +3,7 @@ package com.cx.service
 import com.cx.domain.Blade
 import com.cx.domain.Server
 import com.cx.domain.Vlan
+import com.cx.domain.Vsan
 import grails.transaction.Transactional
 
 @Transactional
@@ -26,6 +27,28 @@ class UcsResponseInterpreterService {
             blades << blade
         }
         blades
+    }
+
+    public Collection<Vlan> interpretVsansResponse(def response) {
+        Collection<Map> vsans = []
+        response.data.outConfigs.fabricVsan.each { def vsan ->
+            vsans << [dn:vsan.@dn.text(), name:vsan.@name.text(), switchId:vsan.@switchId.text(), networkId:vsan.@id.text()]
+        }
+        convertMapsToVsans(vsans)
+    }
+
+    // Unsaved instances
+    private Collection<Vsan> convertMapsToVsans(Collection<Map> vsanMaps) {
+        Collection<Vsan> vsans = []
+        vsanMaps.each { Map vsanMap ->
+            Vsan vsan = new Vsan()
+            vsan.name = vsanMap["name"]
+            vsan.vsan = vsanMap["networkId"]
+            vsan.dn = vsanMap["dn"]
+            vsan.switchId = vsanMap["switchId"]
+            vsans << vsan
+        }
+        vsans
     }
 
     public Collection<Vlan> interpretVlansResponse(def response) {

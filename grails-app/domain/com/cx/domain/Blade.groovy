@@ -13,4 +13,15 @@ class Blade {
     static mapping = {
         sort "dn"
     }
+
+    /*
+    TODO Refactor to proper searchable interface common and clean across all domain objects
+     */
+    public String toString() {
+        "Blade:$dn"
+    }
+
+    public String getFullyQualifiedPath() {
+        ucs.toString() + "/" + this
+    }
 }

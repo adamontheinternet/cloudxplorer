@@ -28,7 +28,7 @@
 <table>
     <tr><th>ID</th><th>Name</th><th>DN</th><th>Switch</th></tr>
     <g:each in="${vsans}" var="vsan">
-        <tr><td>${vsan.networkId}</td><td>${vsan.name}</td><td>${vsan.dn}</td><td>${vsan.switchId}</td></tr>
+        <tr><td>${vsan.vsan}</td><td>${vsan.name}</td><td>${vsan.dn}</td><td>${vsan.switchId}</td></tr>
     </g:each>
 </table>
 </body>

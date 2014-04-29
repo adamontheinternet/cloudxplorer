@@ -153,7 +153,7 @@ class UcsController {
             log.info "Find vsans for ${ucsInstance.ip}"
             if(ucsInstance.connectionVerified) {
                 Collection<Map> vsans = ucsService.getVsans(ucsInstance)
-                returnMap["vsans"] = vsans.sort{it.networkId}
+                returnMap["vsans"] = vsans.sort{it.vsan}
             } else {
                 log.info "Connection not verified for UCS ${ucsInstance.ip}"
                 returnMap["error"] = "Connection not verified for UCS ${ucsInstance.ip}"
