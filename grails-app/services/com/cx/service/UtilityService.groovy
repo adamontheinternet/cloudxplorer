@@ -1,9 +1,16 @@
 package com.cx.service
 
+import com.cx.domain.Blade
 import com.cx.domain.Credential
 import com.cx.domain.NxOsSwitch
+import com.cx.domain.Port
+import com.cx.domain.Server
 import com.cx.domain.Ucs
 import com.cx.domain.Vcenter
+import com.cx.domain.Vlan
+import com.cx.domain.Vsan
+import com.cx.domain.Zone
+import com.cx.domain.Zoneset
 import grails.transaction.Transactional
 
 @Transactional
@@ -65,7 +72,51 @@ class UtilityService {
         }
     }
 
+    def loadDeviceData() {
+        Ucs.list().each { Ucs ucs ->
+            ucsService.getBlades(ucs)
+            ucsService.getServers(ucs)
+            ucsService.getVlans(ucs)
+            ucsService.getVsans(ucs)
+        }
+        NxOsSwitch.list().each { NxOsSwitch nxOsSwitch ->
+            nxOsSwitchService.getVsans(nxOsSwitch)
+            nxOsSwitchService.getZones(nxOsSwitch)
+        }
+    }
+
     def getJsonConfig() {
         configurationService.getJsonConfig()
+    }
+
+
+    // domain objects
+    public Collection<Object> search(String searchValue) {
+        def matches = []
+        def allDomainObjectInstances = []
+        allDomainObjectInstances.addAll(Blade.list())
+        allDomainObjectInstances.addAll(NxOsSwitch.list())
+        allDomainObjectInstances.addAll(Port.list())
+        allDomainObjectInstances.addAll(Server.list())
+        allDomainObjectInstances.addAll(Ucs.list())
+        allDomainObjectInstances.addAll(Vcenter.list())
+        allDomainObjectInstances.addAll(Vlan.list())
+        allDomainObjectInstances.addAll(Vsan.list())
+        allDomainObjectInstances.addAll(Zone.list())
+        allDomainObjectInstances.addAll(Zoneset.list())
+
+        allDomainObjectInstances.each { def domainObject ->
+            log.info "Search domain object $domainObject"
+            domainObject.properties.each { def key, def value ->
+                if(value?.class == String) {
+                    if(((String)value).contains(searchValue)) {
+                        log.info("Domain object $domainObject property $key contains search value $searchValue")
+                        matches << domainObject
+                    }
+                }
+//                println "$key (${key.class} = $value (${value.class})"
+            }
+        }
+        matches
     }
 }
