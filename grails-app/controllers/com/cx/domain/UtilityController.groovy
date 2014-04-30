@@ -33,13 +33,16 @@ class UtilityController {
         def objects =  utilityService.search(searchParam)
         String output = "<ul>"
         objects.each {
-            output += "<li>${it}</li>"
+            output += "<li>${it.getFullyQualifiedName()}</li>"
         }
         render output + "</ul>"
     }
 
     def load() {
+        long start = System.currentTimeMillis()
         utilityService.loadDeviceData()
-        render "Device data loaded"
+        long end = System.currentTimeMillis()
+        long timeElapsed = ((end - start) / 1000)
+        render "Device data loaded in $timeElapsed seconds"
     }
 }

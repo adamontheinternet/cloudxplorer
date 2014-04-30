@@ -1,6 +1,6 @@
 package com.cx.domain
 
-abstract class CloudElement {
+abstract class CloudElement implements Searchable {
 
     String ip
     Boolean connectionVerified = false

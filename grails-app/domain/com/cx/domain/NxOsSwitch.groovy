@@ -16,4 +16,8 @@ class NxOsSwitch extends CloudElement {
     public String getType() {
         "NX-OS Switch"
     }
+
+    public String getFullyQualifiedName() {
+        this.toString()
+    }
 }

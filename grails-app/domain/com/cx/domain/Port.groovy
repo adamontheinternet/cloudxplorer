@@ -1,6 +1,6 @@
 package com.cx.domain
 
-class Port {
+class Port implements Searchable {
 
     String wwn
 
@@ -8,4 +8,16 @@ class Port {
     }
 
     static belongsTo = [zone:Zone]
+
+    public String getType() {
+        "Port"
+    }
+
+    public String getFullyQualifiedName() {
+        zone.getFullyQualifiedName() + " -> " + "${this.toString()}"
+    }
+
+    public String toString() {
+        "${getType()}:$wwn"
+    }
 }

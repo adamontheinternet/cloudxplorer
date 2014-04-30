@@ -1,6 +1,6 @@
 package com.cx.domain
 
-class Vlan {
+class Vlan implements Searchable {
 
     String dn
     String networkId
@@ -9,5 +9,17 @@ class Vlan {
     static belongsTo = [ucs:Ucs]
 
     static constraints = {
+    }
+
+    public String getType() {
+        "VLAN"
+    }
+
+    public String getFullyQualifiedName() {
+        ucs.getFullyQualifiedName() + " -> " + "${this.toString()}"
+    }
+
+    public String toString() {
+        "${getType()}:$name"
     }
 }

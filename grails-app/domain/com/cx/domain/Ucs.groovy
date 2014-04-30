@@ -10,4 +10,8 @@ class Ucs extends CloudElement {
     public String getType() {
         "UCS"
     }
+
+    public String getFullyQualifiedName() {
+        this.toString()
+    }
 }

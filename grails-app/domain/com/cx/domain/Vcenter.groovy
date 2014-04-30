@@ -8,4 +8,8 @@ class Vcenter extends CloudElement {
     public String getType() {
         "vCenter"
     }
+
+    public String getFullyQualifiedName() {
+        this.toString()
+    }
 }

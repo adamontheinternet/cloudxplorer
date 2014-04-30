@@ -1,6 +1,6 @@
 package com.cx.domain
 
-class Blade {
+class Blade implements Searchable {
 
     String dn
     String assignedTo
@@ -14,14 +14,15 @@ class Blade {
         sort "dn"
     }
 
-    /*
-    TODO Refactor to proper searchable interface common and clean across all domain objects
-     */
-    public String toString() {
-        "Blade:$dn"
+    public String getType() {
+        "Blade"
     }
 
-    public String getFullyQualifiedPath() {
-        ucs.toString() + "/" + this
+    public String getFullyQualifiedName() {
+        ucs.getFullyQualifiedName() + " -> " + "${this.toString()}"
+    }
+
+    public String toString() {
+        "${getType()}:$dn"
     }
 }

@@ -65,8 +65,8 @@ class UtilityService {
                 vcenter.properties = jsonVcenter
                 vcenter.credential = Credential.findByName(jsonVcenter.credential_ref)
                 vcenter.credential.addToCloudElements(vcenter)
-                vcenter.connectionVerified = vcenterService.verifyConnection(vcenter)
-//                vcenter.connectionVerified = true
+//                vcenter.connectionVerified = vcenterService.verifyConnection(vcenter)
+                vcenter.connectionVerified = true
                 vcenter.save()
             }
         }
@@ -92,7 +92,7 @@ class UtilityService {
 
     // domain objects
     public Collection<Object> search(String searchValue) {
-        def matches = []
+        Set matches = [] // Use Set to avoid duplicates which will happen due to getFullyQualifiedName search as attribute!
         def allDomainObjectInstances = []
         allDomainObjectInstances.addAll(Blade.list())
         allDomainObjectInstances.addAll(NxOsSwitch.list())
@@ -109,8 +109,8 @@ class UtilityService {
             log.info "Search domain object $domainObject"
             domainObject.properties.each { def key, def value ->
                 if(value?.class == String) {
-                    if(((String)value).contains(searchValue)) {
-                        log.info("Domain object $domainObject property $key contains search value $searchValue")
+                    if(((String)value).toLowerCase().contains(searchValue.toLowerCase())) {
+                        log.info("Domain object $domainObject id ${domainObject.id} property $key contains search value $searchValue")
                         matches << domainObject
                     }
                 }

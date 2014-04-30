@@ -1,6 +1,6 @@
 package com.cx.domain
 
-class Vsan {
+class Vsan implements Searchable {
 
     String vsan
     String name
@@ -18,4 +18,17 @@ class Vsan {
     }
 
     static belongsTo = [nxOsSwitch:NxOsSwitch, ucs:Ucs]
+
+    public String getType() {
+        "VSAN"
+    }
+
+    public String getFullyQualifiedName() {
+        // Will either be owned by UCS or switch
+        (ucs?.getFullyQualifiedName() ?: nxOsSwitch?.getFullyQualifiedName()) + " -> " + "${this.toString()}"
+    }
+
+    public String toString() {
+        "${getType()}:$name"
+    }
 }
