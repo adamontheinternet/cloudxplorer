@@ -84,23 +84,15 @@
 		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div id="page-body" role="main">
             <h1>Welcome to Cloud Xplorer</h1>
-            <p><a href="/CloudXplorer/credential">Create credentials</a> and then start exploring the devices that power the cloud!</p>
+            <p><a href="/CloudXplorer/credential">Create credentials</a> and then start exploring the devices that power the cloud! Support currently exists for <a href="/CloudXplorer/ucs">Cisco UCS B series</a>,
+                <a href="/CloudXplorer/nxOsSwitch">Cisco NX-OS based switches</a>, and <a href="/CloudXplorer/vcenter">VMware vCenter Servers</a>. Or if you are looking for something in particular then
+                <a href="/CloudXplorer/search">try a search</a>.</p>
 
             <a href="/CloudXplorer/ucs"><img src="${resource(dir: 'images', file: 'cisco_ucs_manager_small.png')}" alt="UcsLogo"/></a>
             <a href="/CloudXplorer/nxOsSwitch"><img src="${resource(dir: 'images', file: 'cisco_switch_small.png')}" alt="SwitchLogo"/></a>
             <a href="/CloudXplorer/vcenter"><img src="${resource(dir: 'images', file: 'vcenter_server_logo2.png')}" alt="VcenterLogo"/></a>
-
-
-             <%--
-            <div id="controller-list" role="navigation">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-                    </g:each>
-                </ul>
-            </div>
-            --%>
+            <a href="/CloudXplorer/search"><img src="${resource(dir: 'images', file: 'search.png')}" alt="SearchLogo"/></a>
+            <a href="/CloudXplorer/credential"><img src="${resource(dir: 'images', file: 'key-icon.png')}" alt="CredentialLogo"/></a>
         </div>
 	</body>
 </html>
