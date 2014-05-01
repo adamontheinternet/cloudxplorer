@@ -73,7 +73,40 @@ class UtilityService {
         }
     }
 
+    def deleteDeviceData() {
+        Blade.list().each { Blade blade ->
+            blade.ucs = null
+            blade.delete()
+        }
+        Server.list().each { Server server ->
+            server.ucs = null
+            server.delete()
+        }
+        Vlan.list().each { Vlan vlan ->
+            vlan.ucs = null
+            vlan.delete()
+        }
+        Vsan.list().each { Vsan vsan ->
+            vsan.ucs = null
+            vsan.nxOsSwitch = null
+            vsan.delete()
+        }
+        Port.list().each { Port port ->
+            port.zone = null
+            port.delete()
+        }
+        Zone.list().each { Zone zone ->
+            zone.zoneset = null
+            zone.delete()
+        }
+        Zoneset.list().each { Zoneset zoneset ->
+            zoneset.nxOsSwitch = null
+            zoneset.delete()
+        }
+    }
+
     def loadDeviceData() {
+        deleteDeviceData()
         Ucs.list().each { Ucs ucs ->
             ucsService.getBlades(ucs)
             ucsService.getServers(ucs)
