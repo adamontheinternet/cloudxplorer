@@ -104,6 +104,19 @@ class SearchController {
         }
     }
 
+    @Transactional
+    def load(Search searchInstance) {
+        long start = System.currentTimeMillis()
+        utilityService.loadDeviceData()
+        long end = System.currentTimeMillis()
+        long timeElapsed = ((end - start) / 1000)
+
+        flash.message =  "Device data loaded in $timeElapsed seconds."
+        redirect(action:"index")
+        return
+    }
+
+    @Transactional
     def search(Search searchInstance) {
         if (searchInstance == null) {
             notFound()
@@ -114,14 +127,14 @@ class SearchController {
 //            return [searchInstance:searchInstance, error:"Please enter a search value."]
 //            log.info "return"
 
-            flash.message =  "Please enter a search value."
+            flash.error =  "Please enter a search value."
             redirect(action:"index")
             return
         }
 
         boolean domainSelected = searchInstance?.ucs || searchInstance?.nxOsSwitch || searchInstance?.vcenter
         if(!domainSelected) {
-            flash.message =  "Please select a search domain."
+            flash.error =  "Please select a search domain."
             redirect(action:"index")
             return
 
@@ -133,6 +146,12 @@ class SearchController {
 //        partitionedResults["searchInstance"] = searchInstance
 //        partitionedResults
 
-        [objects:objects.sort{it.getType()}, searchInstance:searchInstance]
+//        [objects:objects.sort{it.getType()}, searchInstance:searchInstance]
+
+        SearchResult searchResult = utilityService.interpretSearchResults(objects)
+        searchResult.getZones().each { def key, value ->
+            log.info "Switch ${key} zones ${value.collect{it.id}}"
+        }
+        [searchResult:searchResult, searchInstance:searchInstance]
     }
 }

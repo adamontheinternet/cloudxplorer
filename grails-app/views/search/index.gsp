@@ -12,14 +12,17 @@
 		<div class="nav" role="navigation">
 			<ul>
                 <li><a href="${createLink(uri: '/')}">Back to /</a></li>
-                <li><a href="${createLink(uri: '/utility/load')}">Reload Cache</a></li>
+                <li><g:link action="load">Reload Cache</g:link></li>
 			</ul>
 		</div>
 		<div id="list-search" class="content scaffold-list" role="main">
             <div id="create-search" class="content scaffold-create" role="main">
                 <h1>Select domains and perform a search</h1>
                 <g:if test="${flash.message}">
-                    <div class="errors" role="alert">${flash.message}</div>
+                    <div class="message" role="status">${flash.message}</div>
+                </g:if>
+                <g:if test="${flash.error}">
+                    <div class="errors" role="alert">${flash.error}</div>
                 </g:if>
 
                 <g:form url="[resource:searchInstance, action:'search']" >

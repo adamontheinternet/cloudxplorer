@@ -5,6 +5,7 @@ import com.cx.domain.Credential
 import com.cx.domain.NxOsSwitch
 import com.cx.domain.Port
 import com.cx.domain.Search
+import com.cx.domain.SearchResult
 import com.cx.domain.Server
 import com.cx.domain.Ucs
 import com.cx.domain.Vcenter
@@ -73,40 +74,8 @@ class UtilityService {
         }
     }
 
-    def deleteDeviceData() {
-        Blade.list().each { Blade blade ->
-            blade.ucs = null
-            blade.delete()
-        }
-        Server.list().each { Server server ->
-            server.ucs = null
-            server.delete()
-        }
-        Vlan.list().each { Vlan vlan ->
-            vlan.ucs = null
-            vlan.delete()
-        }
-        Vsan.list().each { Vsan vsan ->
-            vsan.ucs = null
-            vsan.nxOsSwitch = null
-            vsan.delete()
-        }
-        Port.list().each { Port port ->
-            port.zone = null
-            port.delete()
-        }
-        Zone.list().each { Zone zone ->
-            zone.zoneset = null
-            zone.delete()
-        }
-        Zoneset.list().each { Zoneset zoneset ->
-            zoneset.nxOsSwitch = null
-            zoneset.delete()
-        }
-    }
-
+    @Transactional
     def loadDeviceData() {
-        deleteDeviceData()
         Ucs.list().each { Ucs ucs ->
             ucsService.getBlades(ucs)
             ucsService.getServers(ucs)
@@ -121,6 +90,28 @@ class UtilityService {
 
     def getJsonConfig() {
         configurationService.getJsonConfig()
+    }
+
+    public SearchResult interpretSearchResults(Collection<Objects> results) {
+        SearchResult searchResult = new SearchResult()
+
+        searchResult.addBlades(results.findAll{it.class == Blade})
+        searchResult.addServers(results.findAll{it.class == Server})
+        searchResult.addVlans(results.findAll{it.class == Vlan})
+        searchResult.addUcsVsans(results.findAll{it.class == Vsan && it.ucs != null})
+
+        Set<Zone> zones = []
+        zones.addAll(results.findAll{it.class == Zone})
+        results.findAll{it.class == Zoneset}.each { Zoneset zoneset ->
+            zones.addAll(zoneset.zones)
+        }
+        results.findAll{it.class == Port}.each { Port port ->
+            zones << port.zone
+        }
+        searchResult.addZones(zones)
+        searchResult.addNxOsSwitchVsans(results.findAll{it.class == Vsan && it.nxOsSwitch != null})
+
+        searchResult
     }
 
     public Map<String,List<Object>> partitionSearchResults(Collection<Objects> results) {

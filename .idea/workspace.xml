@@ -2,23 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de069923-c19d-4042-a91e-401305882719" name="Default" comment="convert ucs vsan map data to domain object">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/groovy/com/cx/domain/SearchResult.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/SearchController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/SearchController.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/cx/service/UtilityService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/cx/service/UtilityService.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/search/_form.gsp" afterPath="$PROJECT_DIR$/grails-app/views/search/_form.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/search/index.gsp" afterPath="$PROJECT_DIR$/grails-app/views/search/index.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/search/search.gsp" afterPath="$PROJECT_DIR$/grails-app/views/search/search.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="CloudXplorer.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/.grails/" />
     <file path="/a.dummy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398962005610" ignored="false" />
     <file path="/main.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398182367429" ignored="false" />
-    <file path="/index.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398970514043" ignored="false" />
+    <file path="/index.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1399473704615" ignored="false" />
     <file path="/main.css" changelist="de069923-c19d-4042-a91e-401305882719" time="1398183932771" ignored="false" />
     <file path="/Credential.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398270920552" ignored="false" />
     <file path="/fragment.java" changelist="de069923-c19d-4042-a91e-401305882719" time="1398714104184" ignored="false" />
     <file path="/CloudElement.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398460491361" ignored="false" />
     <file path="/Ucs.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398894124017" ignored="false" />
     <file path="/Switch.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398372347795" ignored="false" />
-    <file path="/Dummy.txt" changelist="de069923-c19d-4042-a91e-401305882719" time="1398962006780" ignored="false" />
+    <file path="/Dummy.txt" changelist="de069923-c19d-4042-a91e-401305882719" time="1399472901513" ignored="false" />
     <file path="/Server.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398895066980" ignored="false" />
-    <file path="/UcsService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398807645579" ignored="false" />
+    <file path="/UcsService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1399476877579" ignored="false" />
     <file path="/InfrastructureException.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398195156087" ignored="false" />
     <file path="/CloudElementException.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398195170554" ignored="false" />
     <file path="/SystemConfig.json" changelist="de069923-c19d-4042-a91e-401305882719" time="1398283193700" ignored="false" />
@@ -34,7 +41,7 @@
     <file path="/vlans.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398357261031" ignored="false" />
     <file path="/blades.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398356795374" ignored="false" />
     <file path="/servers.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398357215039" ignored="false" />
-    <file path="/UtilityService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398976315312" ignored="false" />
+    <file path="/UtilityService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1399476721031" ignored="false" />
     <file path="/Config.json" changelist="de069923-c19d-4042-a91e-401305882719" time="1398715289293" ignored="false" />
     <file path="/ConfigurationService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398715375675" ignored="false" />
     <file path="/UtilityController.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398956207003" ignored="false" />
@@ -49,7 +56,7 @@
     <file path="/NxOsSwitch.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398459713494" ignored="false" />
     <file path="$USER_HOME$/Work/SVN/4.1.0.X/core/modules/slm/grails-app/services/uim/slm/service/ManagedServiceService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398451128212" ignored="false" />
     <file path="/BuildConfig.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398462715475" ignored="false" />
-    <file path="/NxOsSwitchService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398456190091" ignored="false" />
+    <file path="/NxOsSwitchService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1399475461459" ignored="false" />
     <file path="/NxOsSwitchResponseInterpreterService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398455709876" ignored="false" />
     <file path="/SshService.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398456436050" ignored="false" />
     <file path="/CloudElementType.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398460456473" ignored="false" />
@@ -68,10 +75,17 @@
     <file path="/Port.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398894434674" ignored="false" />
     <file path="/Zone.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398894476882" ignored="false" />
     <file path="/Vlan.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398895159298" ignored="false" />
-    <file path="/search.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398974771202" ignored="false" />
+    <file path="/search.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1399059650011" ignored="false" />
     <file path="/Search.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398961124726" ignored="false" />
-    <file path="/SearchController.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1398974803687" ignored="false" />
-    <file path="/_form.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1398962283007" ignored="false" />
+    <file path="/SearchController.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1399473688008" ignored="false" />
+    <file path="/_form.gsp" changelist="de069923-c19d-4042-a91e-401305882719" time="1399473639311" ignored="false" />
+    <file path="/SearchResult.groovy" changelist="de069923-c19d-4042-a91e-401305882719" time="1399058760272" ignored="false" />
+    <file path="$USER_HOME$/Work/Git/vipr/vipr-controller/controllersvc/src/main/java/com/emc/storageos/volumecontroller/impl/plugins/discovery/smis/DataCollectionJobScheduler.java" changelist="de069923-c19d-4042-a91e-401305882719" time="1399064169113" ignored="false" />
+    <file path="$USER_HOME$/Work/Git/vipr/vipr-controller/dbclient/src/main/java/com/emc/storageos/db/client/DbClient.java" changelist="de069923-c19d-4042-a91e-401305882719" time="1399064169113" ignored="false" />
+    <file path="$USER_HOME$/Work/Git/vipr/vipr-controller/dbclient/src/main/java/com/emc/storageos/db/client/impl/DbClientImpl.java" changelist="de069923-c19d-4042-a91e-401305882719" time="1399064169113" ignored="false" />
+    <file path="$USER_HOME$/Work/Git/vipr/vipr-controller/controllersvc/src/conf/controller-conf.xml" changelist="de069923-c19d-4042-a91e-401305882719" time="1399064169113" ignored="false" />
+    <file path="$USER_HOME$/Work/Git/vipr/vipr-controller/controllersvc/src/main/java/com/emc/storageos/volumecontroller/impl/block/BlockDeviceController.java" changelist="de069923-c19d-4042-a91e-401305882719" time="1399064169113" ignored="false" />
+    <file path="$USER_HOME$/Work/Git/vipr/vipr-controller/apisvc/src/main/java/com/emc/storageos/api/service/impl/resource/HostService.java" changelist="de069923-c19d-4042-a91e-401305882719" time="1399064478096" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,8 +136,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -136,7 +150,7 @@
       <file leaf-file-name="UtilityService.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/UtilityService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="8" selection-start="2810" selection-end="2810" vertical-scroll-proportion="-0.083102494">
+            <state line="73" column="18" selection-start="2828" selection-end="2828" vertical-scroll-proportion="0.35569423">
               <folding>
                 <element signature="e#24#50#0" expanded="true" />
               </folding>
@@ -144,25 +158,75 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/Server.groovy">
-          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-            <state />
-          </provider>
+      <file leaf-file-name="NxOsSwitchService.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/NxOsSwitchService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="6" selection-start="29" selection-end="29" vertical-scroll-proportion="-0.6">
+            <state line="31" column="38" selection-start="974" selection-end="974" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1399477950000" expanded="true" signature="704:1633" placeholder="{...}" />
+                <marker date="1399477950000" expanded="true" signature="956:1522" placeholder="{...}" />
+                <marker date="1399477950000" expanded="true" signature="1107:1350" placeholder="{...}" />
+                <marker date="1399477950000" expanded="true" signature="1528:1596" placeholder="{...}" />
+                <marker date="1399477950000" expanded="true" signature="1749:2392" placeholder="{...}" />
+                <marker date="1399477950000" expanded="true" signature="1740:2332" placeholder="{...}" />
+                <marker date="1399477950000" expanded="true" signature="2001:2219" placeholder="{...}" />
+                <marker date="1399477950000" expanded="true" signature="2338:2368" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SshService.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/SshService.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="18" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Vlan.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/Vlan.groovy">
-          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-            <state />
-          </provider>
+      <file leaf-file-name="NxOsSwitchResponseInterpreterService.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/NxOsSwitchResponseInterpreterService.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="24" selection-start="135" selection-end="135" vertical-scroll-proportion="-2.4">
+            <state line="18" column="28" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UcsService.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/UcsService.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="89" column="30" selection-start="2859" selection-end="2859" vertical-scroll-proportion="-9.807693">
+              <folding>
+                <element signature="e#24#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UcsResponseInterpreterService.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/UcsResponseInterpreterService.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="29" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UcsController.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/UcsController.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="20" selection-start="202" selection-end="202" vertical-scroll-proportion="-3.2608695">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Config.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="132" column="32" selection-start="5819" selection-end="5819" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -171,7 +235,7 @@
       <file leaf-file-name="index.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/search/index.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="60" selection-start="765" selection-end="809" vertical-scroll-proportion="-6.06383">
+            <state line="26" column="48" selection-start="1083" selection-end="1083" vertical-scroll-proportion="-8.297873">
               <folding />
             </state>
           </provider>
@@ -180,65 +244,10 @@
       <file leaf-file-name="SearchController.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/SearchController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="56" selection-start="3915" selection-end="3915" vertical-scroll-proportion="-11.551021">
+            <state line="109" column="0" selection-start="3197" selection-end="3197" vertical-scroll-proportion="-8.956522">
               <folding>
-                <element signature="e#23#59#0" expanded="true" />
-                <marker date="1398974803000" expanded="true" signature="4108:4172" placeholder="..." />
+                <marker date="1399474167000" expanded="true" signature="4491:4555" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vsan.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/Vsan.groovy">
-          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="24" selection-start="358" selection-end="358" vertical-scroll-proportion="-5.7">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Zone.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/Zone.groovy">
-          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="24" selection-start="150" selection-end="150" vertical-scroll-proportion="-3.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Blade.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/Blade.groovy">
-          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="6" selection-start="29" selection-end="29" vertical-scroll-proportion="-0.6">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/search/search.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="42" selection-start="777" selection-end="777" vertical-scroll-proportion="-6.1643834">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vsans.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/ucs/vsans.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="590" selection-end="826" vertical-scroll-proportion="-8.617022">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -261,21 +270,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Server.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Vlan.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Vsan.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/utility/search.gsp" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/UtilityController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/nxOsSwitch/index.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/ucs/index.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/vcenter/index.gsp" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/cx/domain/Search.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/search/_form.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/index.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/search/index.gsp" />
+        <option value="$PROJECT_DIR$/src/groovy/com/cx/domain/SearchResult.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/search/search.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/search/_form.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/search/index.gsp" />
         <option value="$PROJECT_DIR$/grails-app/controllers/com/cx/domain/SearchController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/cx/service/NxOsSwitchService.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/services/com/cx/service/UcsService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/cx/service/UtilityService.groovy" />
       </list>
     </option>
@@ -298,7 +307,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -309,18 +318,31 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CloudXplorer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Modules" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="258" />
-    <property name="project.structure.proportion" value="0.0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="260" />
+    <property name="project.structure.proportion" value="0.0" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="259" />
-    <property name="recentsLimit" value="5" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="259" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$USER_HOME$/Work/SVN/trunk/VcenterImportUtility" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="269" />
@@ -337,8 +359,8 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
@@ -346,8 +368,8 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -398,15 +420,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Grails.Grails:CloudXplorer">
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method />
-    </configuration>
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
       <module name="" />
       <setting name="vmparams" value="" />
@@ -414,6 +427,15 @@
       <setting name="depsClasspath" value="false" />
       <setting name="passParentEnv" value="true" />
       <setting name="launchBrowser" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -529,26 +551,27 @@
     <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33030853" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971016" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5987319" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22358592" sideWeight="0.7041742" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2230523" sideWeight="0.6585145" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32971016" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6367754" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29582578" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497332" sideWeight="0.6268116" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3731884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32940108" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -616,132 +639,127 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/views/index.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/DataSource.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="133" selection-start="2841" selection-end="2841" vertical-scroll-proportion="-23.125">
+        <state line="27" column="63" selection-start="961" selection-end="961" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/ucs/index.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/UtilityController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="26" selection-start="839" selection-end="839" vertical-scroll-proportion="-5.744681">
+        <state line="41" column="8" selection-start="1218" selection-end="1218" vertical-scroll-proportion="-20.913044">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/nxOsSwitch/zones.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/nxOsSwitch/show.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="610" selection-end="953" vertical-scroll-proportion="-8.617022">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/ucs/servers.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="591" selection-end="925" vertical-scroll-proportion="-8.297873">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/ucs/vlans.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="153" selection-end="777" vertical-scroll-proportion="-2.5531914">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/nxOsSwitch/vsans.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="611" selection-end="779" vertical-scroll-proportion="-8.617022">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/ucs/vsans.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="590" selection-end="826" vertical-scroll-proportion="-8.617022">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/search/index.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="60" selection-start="765" selection-end="809" vertical-scroll-proportion="-6.06383">
+        <state line="13" column="81" selection-start="509" selection-end="574" vertical-scroll-proportion="-4.1489363">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/search/search.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="42" selection-start="777" selection-end="777" vertical-scroll-proportion="-6.1643834">
+        <state line="83" column="27" selection-start="2858" selection-end="2858" vertical-scroll-proportion="-26.48936">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/search/_form.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="63" selection-start="446" selection-end="446" vertical-scroll-proportion="-4.4680853">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/nxOsSwitch/index.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/search/index.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="48" selection-start="1083" selection-end="1083" vertical-scroll-proportion="-8.297873">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="32" selection-start="5819" selection-end="5819" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/UcsController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="20" selection-start="202" selection-end="202" vertical-scroll-proportion="-3.2608695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/UcsResponseInterpreterService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="29" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/NxOsSwitchResponseInterpreterService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="28" selection-start="497" selection-end="497" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/SshService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="18" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/NxOsSwitchService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="38" selection-start="974" selection-end="974" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1399477950000" expanded="true" signature="704:1633" placeholder="{...}" />
+            <marker date="1399477950000" expanded="true" signature="956:1522" placeholder="{...}" />
+            <marker date="1399477950000" expanded="true" signature="1107:1350" placeholder="{...}" />
+            <marker date="1399477950000" expanded="true" signature="1528:1596" placeholder="{...}" />
+            <marker date="1399477950000" expanded="true" signature="1749:2392" placeholder="{...}" />
+            <marker date="1399477950000" expanded="true" signature="1740:2332" placeholder="{...}" />
+            <marker date="1399477950000" expanded="true" signature="2001:2219" placeholder="{...}" />
+            <marker date="1399477950000" expanded="true" signature="2338:2368" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/UcsService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="30" selection-start="2859" selection-end="2859" vertical-scroll-proportion="-9.807693">
+          <folding>
+            <element signature="e#24#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/cx/domain/SearchController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="56" selection-start="3915" selection-end="3915" vertical-scroll-proportion="-11.551021">
+        <state line="109" column="0" selection-start="3197" selection-end="3197" vertical-scroll-proportion="-8.956522">
           <folding>
-            <element signature="e#23#59#0" expanded="true" />
-            <marker date="1398974803000" expanded="true" signature="4108:4172" placeholder="..." />
+            <marker date="1399474167000" expanded="true" signature="4491:4555" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/Blade.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="29" selection-end="29" vertical-scroll-proportion="-0.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/Server.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="29" selection-end="29" vertical-scroll-proportion="-0.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/Vlan.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="24" selection-start="135" selection-end="135" vertical-scroll-proportion="-2.4">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/Vsan.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="24" selection-start="358" selection-end="358" vertical-scroll-proportion="-5.7">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/com/cx/domain/Zone.groovy">
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="24" selection-start="150" selection-end="150" vertical-scroll-proportion="-3.0">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/services/com/cx/service/UtilityService.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="8" selection-start="2810" selection-end="2810" vertical-scroll-proportion="-0.083102494">
+        <state line="73" column="18" selection-start="2828" selection-end="2828" vertical-scroll-proportion="0.35569423">
           <folding>
             <element signature="e#24#50#0" expanded="true" />
           </folding>

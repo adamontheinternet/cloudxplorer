@@ -24,12 +24,75 @@
     </ul>
 </g:if>
 
+
+<g:each in="${searchResult.getBlades()}" var="ucsBlades">
+    <h1>${ucsBlades.key} Blades</h1>
+    <table>
+        <tr><th>DN</th><th>Assigned To</th></tr>
+        <g:each in="${ucsBlades.value}" var="blade">
+            <tr><td>${blade.dn}</td><td>${blade.assignedTo}</td></tr>
+        </g:each>
+    </table>
+</g:each>
+
+<g:each in="${searchResult.getServers()}" var="ucsServers">
+    <h1>${ucsServers.key} Servers</h1>
+    <table>
+        <tr><th>DN</th><th>Assign State</th><th>Config State</th><th>Oper State</th><th>Assoc State</th></tr>
+        <g:each in="${ucsServers.value}" var="server">
+            <tr><td>${server.dn}</td><td>${server.assignState}</td><td>${server.configState}</td><td>${server.operState}</td><td>${server.assocState}</td></tr>
+        </g:each>
+    </table>
+</g:each>
+
+<g:each in="${searchResult.getVlans()}" var="ucsVlans">
+    <h1>${ucsVlans.key} Vlans</h1>
+    <table>
+        <tr><th>ID</th><th>Name</th></tr>
+        <g:each in="${ucsVlans.value}" var="vlan">
+            <tr><td>${vlan.networkId}</td><td>${vlan.name}</td></tr>
+        </g:each>
+    </table>
+</g:each>
+
+<g:each in="${searchResult.getUcsVsans()}" var="ucsVsans">
+    <h1>${ucsVsans.key} Vsans</h1>
+    <table>
+        <tr><th>ID</th><th>Name</th><th>DN</th><th>Switch</th></tr>
+        <g:each in="${ucsVsans.value}" var="vsan">
+            <tr><td>${vsan.vsan}</td><td>${vsan.name}</td><td>${vsan.dn}</td><td>${vsan.switchId}</td></tr>
+        </g:each>
+    </table>
+</g:each>
+
+<g:each in="${searchResult.getZones()}" var="switchZones">
+    <h1>${switchZones.key} Zones</h1>
+    <table>
+        <tr><th>VSAN</th><th>Name</th><th>Ports</th><th>Zoneset Name</th></tr>
+        <g:each in="${switchZones.value}" var="zone">
+            <tr><td>${zone.vsan}</td><td>${zone.name}</td><td>${zone.ports.collect{it.wwn}}</td><td>${zone.zoneset.name}</td></tr>
+        </g:each>
+    </table>
+</g:each>
+
+<g:each in="${searchResult.getNxOsSwitchVsans()}" var="switchVsans">
+    <h1>${switchVsans.key} Vsans</h1>
+    <table>
+        <tr><th>VSAN</th><th>Name</th><th>Ports</th><th>Vsanset Name</th></tr>
+        <g:each in="${switchVsans.value}" var="vsan">
+            <tr><td>${vsan.vsan}</td><td>${vsan.name}</td><td>${vsan.ports.collect{it.wwn}}</td><td>${vsan.vsanset.name}</td></tr>
+        </g:each>
+    </table>
+</g:each>
+
+<%--
 <table>
     <tr><th>Type</th><th>Fully Qualified Name</th></tr>
     <g:each in="${objects}" var="object">
         <tr><td>${object.getType()}</td><td>${object.getFullyQualifiedName()}</td></tr>
     </g:each>
 </table>
+--%>
 
 <%--
 <g:if test="${blades?.size() > 0}">
