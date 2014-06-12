@@ -78,9 +78,9 @@
 <g:each in="${searchResult.getNxOsSwitchVsans()}" var="switchVsans">
     <h1>${switchVsans.key} Vsans</h1>
     <table>
-        <tr><th>VSAN</th><th>Name</th><th>Ports</th><th>Vsanset Name</th></tr>
+        <tr><th>VSAN</th><th>Name</th></tr>
         <g:each in="${switchVsans.value}" var="vsan">
-            <tr><td>${vsan.vsan}</td><td>${vsan.name}</td><td>${vsan.ports.collect{it.wwn}}</td><td>${vsan.vsanset.name}</td></tr>
+            <tr><td>${vsan.vsan}</td><td>${vsan.name}</td></tr>
         </g:each>
     </table>
 </g:each>
