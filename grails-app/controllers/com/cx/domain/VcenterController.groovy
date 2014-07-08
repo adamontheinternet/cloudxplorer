@@ -145,4 +145,23 @@ class VcenterController {
         }
         returnMap
     }
+
+    @Transactional
+    def disks(Vcenter vcenterInstance) {
+        def returnMap = [vcenterInstance:vcenterInstance]
+        try {
+            log.info "Find disks for ${vcenterInstance.ip}"
+            if(vcenterInstance.connectionVerified) {
+                Collection<Disk> disks = vcenterService.getDisks(vcenterInstance)
+                returnMap["disks"] = disks.sort{it.name}
+            } else {
+                log.info "Connection not verified for vCenter ${vcenterInstance.ip}"
+                returnMap["error"] = "Connection not verified for vCenter ${vcenterInstance.ip}"
+            }
+        } catch(Exception e) {
+            log.error "disks error $e"
+            returnMap["error"] = e.message
+        }
+        returnMap
+    }
 }

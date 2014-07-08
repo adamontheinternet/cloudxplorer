@@ -9,6 +9,8 @@ class VirtualMachine {
     String key
     String host
 
+    static belongsTo = [vcenter:Vcenter]
+
     static constraints = {
         host nullable:true
     }

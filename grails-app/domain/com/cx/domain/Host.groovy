@@ -10,6 +10,8 @@ class Host {
     String connectionState
     Boolean maintenanceMode
 
+    static belongsTo = [vcenter:Vcenter]
+
     static constraints = {
     }
 }

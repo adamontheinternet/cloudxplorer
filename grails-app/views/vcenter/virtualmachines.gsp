@@ -26,9 +26,9 @@
 </g:if>
 
 <table>
-    <tr><th>Name</th><th>Host</th><th>Cluster</th><th>Power State</th><th>Template</th></tr>
+    <tr><th>Name</th><th>Host</th><th>Power State</th><th>Template</th></tr>
     <g:each in="${virtualMachines}" var="virtualMachine">
-        <tr><td>${virtualMachine.name}</td><td>${virtualMachine.host}</td><td>${virtualMachine.cluster}</td><td>${virtualMachine.powerState}</td><td>${virtualMachine.template}</td></tr>
+        <tr><td>${virtualMachine.name}</td><td>${virtualMachine.host}</td><td>${virtualMachine.powerState}</td><td>${virtualMachine.template}</td></tr>
     </g:each>
 </table>
 

@@ -12,9 +12,10 @@
 		<div class="nav" role="navigation">
 			<ul>
                 <li><g:link action="index">Back to all vCenter</g:link></li>
-                <li><g:link class="list" action="virtualMachines" resource="${vcenterInstance}"><g:message code="default.vms.label" default="VMs" /></g:link></li>
+                <li><g:link class="list" action="virtualMachines" resource="${vcenterInstance}"><g:message code="default.vms.label" default="Virtual Machines" /></g:link></li>
                 <li><g:link class="list" action="hosts" resource="${vcenterInstance}"><g:message code="default.hosts.label" default="Hosts" /></g:link></li>
-			</ul>
+                <li><g:link class="list" action="disks" resource="${vcenterInstance}"><g:message code="default.disks.label" default="Disks" /></g:link></li>
+            </ul>
 		</div>
 		<div id="show-vcenter" class="content scaffold-show" role="main">
 			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
