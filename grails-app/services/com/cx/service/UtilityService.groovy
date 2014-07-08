@@ -2,6 +2,7 @@ package com.cx.service
 
 import com.cx.domain.Blade
 import com.cx.domain.Credential
+import com.cx.domain.Host
 import com.cx.domain.NxOsSwitch
 import com.cx.domain.Port
 import com.cx.domain.Search
@@ -9,6 +10,7 @@ import com.cx.domain.SearchResult
 import com.cx.domain.Server
 import com.cx.domain.Ucs
 import com.cx.domain.Vcenter
+import com.cx.domain.VirtualMachine
 import com.cx.domain.Vlan
 import com.cx.domain.Vsan
 import com.cx.domain.Zone
@@ -86,6 +88,10 @@ class UtilityService {
             nxOsSwitchService.getVsans(nxOsSwitch)
             nxOsSwitchService.getZones(nxOsSwitch)
         }
+        Vcenter.list().each { Vcenter vcenter ->
+            vcenterService.getVirtualMachines(vcenter)
+            vcenterService.getHosts(vcenter)
+        }
     }
 
     def getJsonConfig() {
@@ -111,6 +117,8 @@ class UtilityService {
         searchResult.addZones(zones)
         searchResult.addNxOsSwitchVsans(results.findAll{it.class == Vsan && it.nxOsSwitch != null})
 
+
+
         searchResult
     }
 
@@ -127,6 +135,11 @@ class UtilityService {
         partitionedResults["zones"] = results.findAll{it.class == Zone}
         partitionedResults["ports"] = results.findAll{it.class == Port}
         partitionedResults["nxOsSwitchVsans"] = results.findAll{it.class == Vsan && it.nxOsSwitch != null}
+
+        partitionedResults["vcenters"] = results.findAll{it.class == NxOsSwitch}
+        partitionedResults["virtualMachines"] = results.findAll{it.class == VirtualMachine}
+        partitionedResults["hosts"] = results.findAll{it.class == Host}
+
         partitionedResults
     }
 
@@ -160,6 +173,8 @@ class UtilityService {
 
         if(vcenter) {
             allDomainObjectInstances.addAll(Vcenter.list())
+            allDomainObjectInstances.addAll(VirtualMachine.list())
+            allDomainObjectInstances.addAll(Host.list())
         }
 
         allDomainObjectInstances.each { def domainObject ->

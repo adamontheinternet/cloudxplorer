@@ -107,4 +107,42 @@ class VcenterController {
             '*' { render status: NOT_FOUND }
         }
     }
+
+    @Transactional
+    def virtualMachines(Vcenter vcenterInstance) {
+        def returnMap = [vcenterInstance:vcenterInstance]
+        try {
+            log.info "Find virtual machines for ${vcenterInstance.ip}"
+            if(vcenterInstance.connectionVerified) {
+                Collection<VirtualMachine> virtualMachines = vcenterService.getVirtualMachines(vcenterInstance)
+                returnMap["virtualMachines"] = virtualMachines.sort{it.name}
+            } else {
+                log.info "Connection not verified for vCenter ${vcenterInstance.ip}"
+                returnMap["error"] = "Connection not verified for vCenter ${vcenterInstance.ip}"
+            }
+        } catch(Exception e) {
+            log.error "virtualMachines error $e"
+            returnMap["error"] = e.message
+        }
+        returnMap
+    }
+
+    @Transactional
+    def hosts(Vcenter vcenterInstance) {
+        def returnMap = [vcenterInstance:vcenterInstance]
+        try {
+            log.info "Find hosts for ${vcenterInstance.ip}"
+            if(vcenterInstance.connectionVerified) {
+                Collection<Host> hosts = vcenterService.getHosts(vcenterInstance)
+                returnMap["hosts"] = hosts.sort{it.name}
+            } else {
+                log.info "Connection not verified for vCenter ${vcenterInstance.ip}"
+                returnMap["error"] = "Connection not verified for vCenter ${vcenterInstance.ip}"
+            }
+        } catch(Exception e) {
+            log.error "hosts error $e"
+            returnMap["error"] = e.message
+        }
+        returnMap
+    }
 }

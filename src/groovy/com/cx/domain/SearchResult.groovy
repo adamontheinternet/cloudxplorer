@@ -17,6 +17,8 @@ class SearchResult {
     private Map<NxOsSwitch, Collection<Zone>> nxOsSwitchZones = [:]
     private Map<NxOsSwitch, Collection<Vsan>> nxOsSwitchVsans = [:]
 
+    private Map<Vcenter, Collection<VirtualMachine>> vcenterVirtualMachines = [:]
+    private Map<Vcenter, Collection<Host>> vcenterHosts = [:]
 
     public void addBlades(Collection<Blade> blades) {
         blades.each { Blade blade ->
@@ -101,4 +103,32 @@ class SearchResult {
     public Map<NxOsSwitch, Collection<Vsan>> getNxOsSwitchVsans() {
         nxOsSwitchVsans
     }
+//
+//    public void addVirtualMachines(Collection<VirtualMachine> virtualMachines) {
+//        virtualMachines.each { VirtualMachine virtualMachine ->
+//            NxOsSwitch nxOsSwitch = zone.zoneset.nxOsSwitch
+//            if(nxOsSwitchZones[nxOsSwitch] == null) {
+//                nxOsSwitchZones[nxOsSwitch] = []
+//            }
+//            nxOsSwitchZones[nxOsSwitch] << zone
+//        }
+//    }
+//
+//    public Map<Vcenter, Collection<VirtualMachine>> getVirtualMachines() {
+//        vcenterVirtualMachines
+//    }
+//
+//    public void addNxOsSwitchVsans(Collection<Vsan> vsans) {
+//        vsans.each { Vsan vsan ->
+//            NxOsSwitch nxOsSwitch = vsan.nxOsSwitch
+//            if(nxOsSwitchVsans[nxOsSwitch] == null) {
+//                nxOsSwitchVsans[nxOsSwitch] = []
+//            }
+//            nxOsSwitchVsans[nxOsSwitch] << vsan
+//        }
+//    }
+//
+//    public Map<NxOsSwitch, Collection<Vsan>> getNxOsSwitchVsans() {
+//        nxOsSwitchVsans
+//    }
 }

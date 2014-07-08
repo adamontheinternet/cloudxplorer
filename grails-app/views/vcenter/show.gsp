@@ -12,9 +12,8 @@
 		<div class="nav" role="navigation">
 			<ul>
                 <li><g:link action="index">Back to all vCenter</g:link></li>
-                <li><g:link class="list" action="vms" resource="${vcenterInstance}"><g:message code="default.vms.label" default="VMs" /></g:link></li>
+                <li><g:link class="list" action="virtualMachines" resource="${vcenterInstance}"><g:message code="default.vms.label" default="VMs" /></g:link></li>
                 <li><g:link class="list" action="hosts" resource="${vcenterInstance}"><g:message code="default.hosts.label" default="Hosts" /></g:link></li>
-                <li><g:link class="list" action="clusters" resource="${vcenterInstance}"><g:message code="default.clusters.label" default="Clusters" /></g:link></li>
 			</ul>
 		</div>
 		<div id="show-vcenter" class="content scaffold-show" role="main">
