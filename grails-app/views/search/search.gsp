@@ -85,6 +85,36 @@
     </table>
 </g:each>
 
+<g:each in="${searchResult.getVirtualMachines()}" var="vcenterVirtualMachines">
+    <h1>${vcenterVirtualMachines.key} Virtual Machines</h1>
+    <table>
+        <tr><th>Name</th><th>Host</th><th>Power State</th><th>Template</th></tr>
+        <g:each in="${vcenterVirtualMachines.value}" var="virtualMachine">
+            <tr><td>${virtualMachine.name}</td><td>${virtualMachine.host}</td><td>${virtualMachine.powerState}</td><td>${virtualMachine.template}</td></tr>
+        </g:each>
+    </table>
+</g:each>
+
+<g:each in="${searchResult.getHosts()}" var="vcenterHosts">
+    <h1>${vcenterHosts.key} Hosts</h1>
+    <table>
+        <tr><th>Name</th><th>Cluster</th><th>OS</th><th>Power State</th><th>Connection State</th><th>Maintenance Mode</th></tr>
+        <g:each in="${vcenterHosts.value}" var="host">
+            <tr><td>${host.name}</td><td>${host.cluster}</td><td>${host.os}</td><td>${host.powerState}</td><td>${host.connectionState}</td><td>${host.maintenanceMode}</td></tr>
+        </g:each>
+    </table>
+</g:each>
+
+<g:each in="${searchResult.getDisks()}" var="vcenterDisks">
+    <h1>${vcenterDisks.key} Disks</h1>
+    <table>
+        <tr><th>Name (Host_LUN)</th><th>UUID</th><th>LUN</th><th>Disk Capacity</th><th>Datastore</th><th>Datastore Capacity</th><th>Datastore Version</th><th>Datastore Block Size</th></tr>
+        <g:each in="${vcenterDisks.value}" var="disk">
+            <tr><td>${disk.name}</td><td>${disk.uuid}</td><td>${disk.lun}</td><td>${disk.capacity}</td><td>${disk.datastore}</td><td>${disk.datastoreCapacity}</td><td>${disk.datastoreVersion}</td><td>${disk.datastoreBlockSize}</td></tr>
+        </g:each>
+    </table>
+</g:each>
+
 <%--
 <table>
     <tr><th>Type</th><th>Fully Qualified Name</th></tr>

@@ -19,6 +19,7 @@ class SearchResult {
 
     private Map<Vcenter, Collection<VirtualMachine>> vcenterVirtualMachines = [:]
     private Map<Vcenter, Collection<Host>> vcenterHosts = [:]
+    private Map<Vcenter, Collection<Disk>> vcenterDisks = [:]
 
     public void addBlades(Collection<Blade> blades) {
         blades.each { Blade blade ->
@@ -103,32 +104,46 @@ class SearchResult {
     public Map<NxOsSwitch, Collection<Vsan>> getNxOsSwitchVsans() {
         nxOsSwitchVsans
     }
-//
-//    public void addVirtualMachines(Collection<VirtualMachine> virtualMachines) {
-//        virtualMachines.each { VirtualMachine virtualMachine ->
-//            NxOsSwitch nxOsSwitch = zone.zoneset.nxOsSwitch
-//            if(nxOsSwitchZones[nxOsSwitch] == null) {
-//                nxOsSwitchZones[nxOsSwitch] = []
-//            }
-//            nxOsSwitchZones[nxOsSwitch] << zone
-//        }
-//    }
-//
-//    public Map<Vcenter, Collection<VirtualMachine>> getVirtualMachines() {
-//        vcenterVirtualMachines
-//    }
-//
-//    public void addNxOsSwitchVsans(Collection<Vsan> vsans) {
-//        vsans.each { Vsan vsan ->
-//            NxOsSwitch nxOsSwitch = vsan.nxOsSwitch
-//            if(nxOsSwitchVsans[nxOsSwitch] == null) {
-//                nxOsSwitchVsans[nxOsSwitch] = []
-//            }
-//            nxOsSwitchVsans[nxOsSwitch] << vsan
-//        }
-//    }
-//
-//    public Map<NxOsSwitch, Collection<Vsan>> getNxOsSwitchVsans() {
-//        nxOsSwitchVsans
-//    }
+
+    public void addVirtualMachines(Collection<VirtualMachine> virtualMachines) {
+        virtualMachines.each { VirtualMachine virtualMachine ->
+            Vcenter vcenter = virtualMachine.vcenter
+            if(vcenterVirtualMachines[vcenter] == null) {
+                vcenterVirtualMachines[vcenter] = []
+            }
+            vcenterVirtualMachines[vcenter] << virtualMachine
+        }
+    }
+
+    public Map<Vcenter, Collection<VirtualMachine>> getVirtualMachines() {
+        vcenterVirtualMachines
+    }
+
+    public void addHosts(Collection<Host> hosts) {
+        hosts.each { Host host ->
+            Vcenter vcenter = host.vcenter
+            if(vcenterHosts[vcenter] == null) {
+                vcenterHosts[vcenter] = []
+            }
+            vcenterHosts[vcenter] << host
+        }
+    }
+
+    public Map<Vcenter, Collection<Host>> getHosts() {
+        vcenterHosts
+    }
+
+    public void addDisks(Collection<Disk> disks) {
+        disks.each { Disk disk ->
+            Vcenter vcenter = disk.vcenter
+            if(vcenterDisks[vcenter] == null) {
+                vcenterDisks[vcenter] = []
+            }
+            vcenterDisks[vcenter] << disk
+        }
+    }
+
+    public Map<Vcenter, Collection<Disk>> getDisks() {
+        vcenterDisks
+    }
 }

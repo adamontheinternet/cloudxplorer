@@ -12,12 +12,12 @@
 		<div class="nav" role="navigation">
 			<ul>
                 <li><a href="${createLink(uri: '/')}">Back to /</a></li>
-                <li><g:link action="load">Reload Cache</g:link></li>
+                <li><g:link action="load">Refresh Device Data</g:link></li>
 			</ul>
 		</div>
 		<div id="list-search" class="content scaffold-list" role="main">
             <div id="create-search" class="content scaffold-create" role="main">
-                <h1>Select domains and perform a search</h1>
+                <h1>Refresh device data (will take a couple minutes!) then perform a search</h1>
                 <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                 </g:if>

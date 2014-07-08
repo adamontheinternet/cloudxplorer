@@ -2,6 +2,7 @@ package com.cx.service
 
 import com.cx.domain.Blade
 import com.cx.domain.Credential
+import com.cx.domain.Disk
 import com.cx.domain.Host
 import com.cx.domain.NxOsSwitch
 import com.cx.domain.Port
@@ -24,7 +25,7 @@ class UtilityService {
     NxOsSwitchService nxOsSwitchService
     VcenterService vcenterService
 
-    def createBootstrapData() {
+    def createBootstrapData(boolean verifyConnection) {
         def jsonConfig = configurationService.getJsonConfig()
 
         if(Credential.list().size() == 0) {
@@ -43,8 +44,7 @@ class UtilityService {
                 ucs.properties = jsonUcs
                 ucs.credential = Credential.findByName(jsonUcs.credential_ref)
                 ucs.credential.addToCloudElements(ucs)
-//                ucs.connectionVerified = ucsService.verifyConnection(ucs)
-                ucs.connectionVerified =true
+                ucs.connectionVerified = verifyConnection ? ucsService.verifyConnection(ucs) : true
                 ucs.save()
             }
         }
@@ -56,8 +56,7 @@ class UtilityService {
                 nxOsSwitch.properties = jsonSwitch
                 nxOsSwitch.credential = Credential.findByName(jsonSwitch.credential_ref)
                 nxOsSwitch.credential.addToCloudElements(nxOsSwitch)
-//                nxOsSwitch.connectionVerified = nxOsSwitchService.verifyConnection(nxOsSwitch)
-                nxOsSwitch.connectionVerified = true
+                nxOsSwitch.connectionVerified = verifyConnection ? nxOsSwitchService.verifyConnection(nxOsSwitch) : true
                 nxOsSwitch.save()
             }
         }
@@ -69,8 +68,7 @@ class UtilityService {
                 vcenter.properties = jsonVcenter
                 vcenter.credential = Credential.findByName(jsonVcenter.credential_ref)
                 vcenter.credential.addToCloudElements(vcenter)
-//                vcenter.connectionVerified = vcenterService.verifyConnection(vcenter)
-                vcenter.connectionVerified = true
+                vcenter.connectionVerified = verifyConnection ? vcenterService.verifyConnection(vcenter) : true
                 vcenter.save()
             }
         }
@@ -91,6 +89,7 @@ class UtilityService {
         Vcenter.list().each { Vcenter vcenter ->
             vcenterService.getVirtualMachines(vcenter)
             vcenterService.getHosts(vcenter)
+            vcenterService.getDisks(vcenter)
         }
     }
 
@@ -117,7 +116,9 @@ class UtilityService {
         searchResult.addZones(zones)
         searchResult.addNxOsSwitchVsans(results.findAll{it.class == Vsan && it.nxOsSwitch != null})
 
-
+        searchResult.addVirtualMachines(results.findAll{it.class == VirtualMachine})
+        searchResult.addHosts(results.findAll{it.class == Host})
+        searchResult.addDisks(results.findAll{it.class == Disk})
 
         searchResult
     }
@@ -175,6 +176,7 @@ class UtilityService {
             allDomainObjectInstances.addAll(Vcenter.list())
             allDomainObjectInstances.addAll(VirtualMachine.list())
             allDomainObjectInstances.addAll(Host.list())
+            allDomainObjectInstances.addAll(Disk.list())
         }
 
         allDomainObjectInstances.each { def domainObject ->
