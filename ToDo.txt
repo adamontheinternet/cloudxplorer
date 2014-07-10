@@ -1,0 +1,9 @@
+Infra:
+Concurrent data fetch for search
+Code review and clean up old search artifacts?
+Data export?
+
+vCenter:
+NFS support
+VM disk association
+

@@ -108,10 +108,14 @@
 <g:each in="${searchResult.getDisks()}" var="vcenterDisks">
     <h1>${vcenterDisks.key} Disks</h1>
     <table>
-        <tr><th>Name (Host_LUN)</th><th>UUID</th><th>LUN</th><th>Disk Capacity</th><th>Datastore</th><th>Datastore Capacity</th><th>Datastore Version</th><th>Datastore Block Size</th></tr>
+        <tr><th>Name (Host_LUN)</th><th>LUN</th><th>Datastore</th><th>Disk (Datastore) Capacity GB</th><th>Datastore Version (Block Size MB)</th><th>UUID</th></tr>
         <g:each in="${vcenterDisks.value}" var="disk">
-            <tr><td>${disk.name}</td><td>${disk.uuid}</td><td>${disk.lun}</td><td>${disk.capacity}</td><td>${disk.datastore}</td><td>${disk.datastoreCapacity}</td><td>${disk.datastoreVersion}</td><td>${disk.datastoreBlockSize}</td></tr>
-        </g:each>
+            <g:if test="${disk.datastore}">
+                <tr><td>${disk.name}</td><td>${disk.lun}</td><td>${disk.datastore}</td><td>${disk.capacity} (${disk.datastoreCapacity})</td><td>VMFS${disk.datastoreVersion} (${disk.datastoreBlockSize})</td><td>${disk.uuid}</td></tr>
+            </g:if>
+            <g:else>
+                <tr><td>${disk.name}</td><td>${disk.lun}</td><td></td><td>${disk.capacity}</td><td></td><td>${disk.uuid}</td></tr>
+            </g:else>        </g:each>
     </table>
 </g:each>
 
