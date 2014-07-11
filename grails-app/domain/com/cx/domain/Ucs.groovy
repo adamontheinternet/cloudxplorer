@@ -7,6 +7,10 @@ class Ucs extends CloudElement {
     static constraints = {
     }
 
+//    static mapping = {
+//        blades cascade: "all-delete-orphan"
+//    }
+
     public String getType() {
         "UCS"
     }

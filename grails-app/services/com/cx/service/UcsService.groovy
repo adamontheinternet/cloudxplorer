@@ -18,25 +18,26 @@ class UcsService {
     private Map<String,String> ucsSessionMap = [:]
     private Map<String,RESTClient> ucsClientMap = [:]
 
+    public Boolean manualConnectionManagement = false // Use to keep a connection open
 
     /*
     Infrastructure
      */
-    private RESTClient createOrGetRestClient(Ucs ucs) throws Exception {
+    public RESTClient createOrGetRestClient(Ucs ucs) throws Exception {
         if(!ucsClientMap[ucs.ip]) {
             ucsClientMap[ucs.ip] = new RESTClient(getUrl(ucs.ip))
         }
         ucsClientMap[ucs.ip]
     }
 
-    private String createOrGetSession(Ucs ucs) throws Exception {
+    public String createOrGetSession(Ucs ucs) throws Exception {
         if(!ucsSessionMap[ucs.ip]) {
             ucsSessionMap[ucs.ip] = createSession(ucs)
         }
         ucsSessionMap[ucs.ip]
     }
 
-    private void destroySession(Ucs ucs) {
+    public void destroySession(Ucs ucs) {
         try {
             logout(ucs)
         } catch(Exception e) {
@@ -106,7 +107,19 @@ class UcsService {
         }
     }
 
-    public Collection<Blade> getBlades(Ucs ucs) throws Exception {
+    public void persistBlades(Ucs ucs, Collection<Blade> blades) {
+        log.info "Persist ${blades.size()} blades for UCS $ucs"
+        ucs.blades*.delete()
+        ucs.blades.clear()
+        blades.each { Blade blade ->
+            ucs.addToBlades(blade)
+            blade.ucs = ucs
+            blade.save()
+        }
+        ucs.save()
+    }
+
+    public Collection<Blade> getBlades(Ucs ucs, boolean persist = true) throws Exception {
         try {
             String cookie =  createOrGetSession(ucs)
             RESTClient restClient = createOrGetRestClient(ucs)
@@ -115,25 +128,35 @@ class UcsService {
             def response = restClient.post(contentType: XML, requestContentType: XML, body: body)
 
             Collection<Blade> blades = ucsResponseInterpreterService.interpretBladesResponse(response)
-            ucs.blades*.delete()
-            ucs.blades.clear()
-            blades.each { Blade blade ->
-                ucs.addToBlades(blade)
-                blade.ucs = ucs
-                blade.save()
+            if(persist) {
+                persistBlades(ucs,blades)
+                ucs.blades
+            } else {
+                blades
             }
-            ucs.save()
-            ucs.blades
         } catch(Exception e) {
             log.error "Error getting blades for ucs ${ucs.ip} $e"
             throw e
         } finally  {
-            destroySession(ucs) // Inefficient
+            if(!manualConnectionManagement) destroySession(ucs) // Inefficient
         }
 
     }
 
-    Collection<Vlan> getVlans(Ucs ucs) {
+    public void persistVlans(Ucs ucs, Collection<Vlan> vlans) {
+        log.info "Persist ${vlans.size()} vlans for UCS $ucs"
+        ucs.vlans*.delete()
+        ucs.vlans.clear()
+        vlans.each { Vlan vlan ->
+            ucs.addToVlans(vlan)
+            vlan.ucs = ucs
+            vlan.save()
+        }
+        ucs.save()
+        ucs.vlans
+    }
+
+    Collection<Vlan> getVlans(Ucs ucs, boolean persist = true) {
         try {
             String cookie = createOrGetSession(ucs)
             RESTClient restClient = createOrGetRestClient(ucs)
@@ -142,24 +165,33 @@ class UcsService {
             def response = restClient.post(contentType: XML,requestContentType: XML,body: body)
 
             Collection<Vlan> vlans = ucsResponseInterpreterService.interpretVlansResponse(response)
-            ucs.vlans*.delete()
-            ucs.vlans.clear()
-            vlans.each { Vlan vlan ->
-                ucs.addToVlans(vlan)
-                vlan.ucs = ucs
-                vlan.save()
+            if(persist) {
+                persistVlans(ucs, vlans)
+                ucs.vlans
+            } else {
+                vlans
             }
-            ucs.save()
-            ucs.vlans
         } catch(Exception e) {
             log.error "Error getting vlans for ucs ${ucs.ip} $e"
             throw e
         } finally  {
-            destroySession(ucs) // Inefficient
+            if(!manualConnectionManagement) destroySession(ucs) // Inefficient
         }
     }
 
-    Collection<Map> getVsans(Ucs ucs) {
+    public void persistVsans(Ucs ucs, Collection<Vsan> vsans) {
+        log.info "Persist ${vsans.size()} vsans for UCS $ucs"
+        ucs.vsans*.delete()
+        ucs.vsans.clear()
+        vsans.each { Vsan vsan ->
+            ucs.addToVsans(vsan)
+            vsan.ucs = ucs
+            vsan.save()
+        }
+        ucs.save()
+    }
+
+    Collection<Map> getVsans(Ucs ucs, boolean persist = true) {
         try {
             String cookie = createOrGetSession(ucs)
             RESTClient restClient = createOrGetRestClient(ucs)
@@ -168,24 +200,33 @@ class UcsService {
             def response = restClient.post(contentType: XML,requestContentType: XML,body: body)
 
             Collection<Vsan> vsans = ucsResponseInterpreterService.interpretVsansResponse(response)
-            ucs.vsans*.delete()
-            ucs.vsans.clear()
-            vsans.each { Vsan vsan ->
-                ucs.addToVsans(vsan)
-                vsan.ucs = ucs
-                vsan.save()
+            if(persist) {
+                persistVsans(ucs, vsans)
+                ucs.vsans
+            } else {
+                vsans
             }
-            ucs.save()
-            ucs.vsans
         } catch(Exception e) {
             log.error "Error getting vsans for ucs ${ucs.ip} $e"
             throw e
         } finally  {
-            destroySession(ucs) // Inefficient
+            if(!manualConnectionManagement) destroySession(ucs) // Inefficient
         }
     }
 
-    Collection<Server> getServers(Ucs ucs) {
+    public void persistServers(Ucs ucs, Collection<Server> servers) {
+        log.info "Persist ${servers.size()} servers for UCS $ucs"
+        ucs.servers*.delete()
+        ucs.servers.clear()
+        servers.each { Server server ->
+            ucs.addToServers(server)
+            server.ucs = ucs
+            server.save()
+        }
+        ucs.save()
+    }
+
+    Collection<Server> getServers(Ucs ucs, boolean persist = true) {
         try {
             String cookie = createOrGetSession(ucs)
             RESTClient restClient = createOrGetRestClient(ucs)
@@ -194,20 +235,17 @@ class UcsService {
             def response = restClient.post(contentType: XML,requestContentType: XML,body: body)
 
             Collection<Server> servers = ucsResponseInterpreterService.interpretServersResponse(response)
-            ucs.servers*.delete()
-            ucs.servers.clear()
-            servers.each { Server server ->
-                ucs.addToServers(server)
-                server.ucs = ucs
-                server.save()
+            if(persist) {
+                persistServers(ucs, servers)
+                ucs.servers
+            } else {
+                servers
             }
-            ucs.save()
-            ucs.servers
         } catch(Exception e) {
             log.error "Error getting servers for ucs ${ucs.ip} $e"
             throw e
         } finally  {
-            destroySession(ucs) // Inefficient
+            if(!manualConnectionManagement) destroySession(ucs) // Inefficient
         }
     }
 }

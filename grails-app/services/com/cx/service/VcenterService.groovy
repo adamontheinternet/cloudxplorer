@@ -28,16 +28,17 @@ class VcenterService {
 
     ConfigurationService configurationService
     VcenterConnectionService vcenterConnectionService
+    public Boolean manualConnectionManagement = false // Use to keep a connection open
 
     private String buildVcenterUrl(String ip) {
         configurationService.getVcenterUrl().replace("\$ip", ip)
     }
 
-    private ServiceInstance openConnection(Vcenter vcenter) {
+    public ServiceInstance openConnection(Vcenter vcenter) {
         vcenterConnectionService.createOrGetShareableServiceInstance(buildVcenterUrl(vcenter.ip), vcenter.credential.username, vcenter.credential.password)
     }
 
-    private void closeConnection(Vcenter vcenter) {
+    public void closeConnection(Vcenter vcenter) {
         vcenterConnectionService.destroyShareableServiceInstance(buildVcenterUrl(vcenter.ip), vcenter.credential.username)
     }
 
@@ -102,24 +103,33 @@ class VcenterService {
         virtualMachines
     }
 
-    public Collection<VirtualMachine> getVirtualMachines(Vcenter vcenter) throws Exception {
+    public void persistVirtualMachines(Vcenter vcenter, Collection<VirtualMachine> virtualMachines) {
+        log.info "Persist ${virtualMachines.size()} virtual machines for vCenter $vcenter"
+        vcenter.virtualMachines*.delete()
+        vcenter.virtualMachines.clear()
+        virtualMachines.each { VirtualMachine virtualMachine ->
+            vcenter.addToVirtualMachines(virtualMachine)
+            virtualMachine.vcenter = vcenter
+            virtualMachine.save()
+        }
+        vcenter.save()
+    }
+
+    public Collection<VirtualMachine> getVirtualMachines(Vcenter vcenter, boolean persist = true) throws Exception {
         try {
             ServiceInstance serviceInstance = openConnection(vcenter)
             Collection<VirtualMachine> virtualMachines = getVirtualMachinesInternal(serviceInstance)
-            vcenter.virtualMachines*.delete()
-            vcenter.virtualMachines.clear()
-            virtualMachines.each { VirtualMachine virtualMachine ->
-                vcenter.addToVirtualMachines(virtualMachine)
-                virtualMachine.vcenter = vcenter
-                virtualMachine.save()
+            if(persist) {
+                persistVirtualMachines(vcenter, virtualMachines)
+                vcenter.virtualMachines
+            } else {
+                virtualMachines
             }
-            vcenter.save()
-            vcenter.virtualMachines
         } catch(Exception e) {
             log.error "Error getting virtual machines for vCenter ${vcenter.ip} $e"
             throw e
         } finally {
-            closeConnection(vcenter)
+            if(!manualConnectionManagement) closeConnection(vcenter)
         }
     }
 
@@ -156,24 +166,33 @@ class VcenterService {
         hosts
     }
 
-    public Collection<Host> getHosts(Vcenter vcenter) throws Exception {
+    public void persistHosts(Vcenter vcenter, Collection<Host> hosts) {
+        log.info "Persist ${hosts.size()} hosts for vCenter $vcenter"
+        vcenter.hosts*.delete()
+        vcenter.hosts.clear()
+        hosts.each { Host host ->
+            vcenter.addToHosts(host)
+            host.vcenter = vcenter
+            host.save()
+        }
+        vcenter.save()
+    }
+
+    public Collection<Host> getHosts(Vcenter vcenter, boolean persist = true) throws Exception {
         try {
             ServiceInstance serviceInstance = openConnection(vcenter)
             Collection<Host> hosts = getHostsInternal(serviceInstance)
-            vcenter.hosts*.delete()
-            vcenter.hosts.clear()
-            hosts.each { Host host ->
-                vcenter.addToHosts(host)
-                host.vcenter = vcenter
-                host.save()
+            if(persist) {
+                persistHosts(vcenter, hosts)
+                vcenter.hosts
+            } else {
+                hosts
             }
-            vcenter.save()
-            vcenter.hosts
         } catch(Exception e) {
             log.error "Error getting hosts for vCenter ${vcenter.ip} $e"
             throw e
         } finally {
-            closeConnection(vcenter)
+            if(!manualConnectionManagement) closeConnection(vcenter)
         }
     }
 
@@ -273,25 +292,34 @@ class VcenterService {
 
     }
 
-    public Collection<Disk> getDisks(Vcenter vcenter) throws Exception {
+    public void persistDisks(Vcenter vcenter, Collection<Disk> disks) {
+        log.info "Persist ${disks.size()} disks for vCenter $vcenter"
+        vcenter.disks*.delete()
+        vcenter.disks.clear()
+        disks.each { Disk disk ->
+            vcenter.addToDisks(disk)
+            disk.vcenter = vcenter
+            disk.save()
+        }
+        vcenter.save()
+    }
+
+    public Collection<Disk> getDisks(Vcenter vcenter, boolean persist = true) throws Exception {
         try {
             ServiceInstance serviceInstance = openConnection(vcenter)
             Collection<Disk> disks = getDisksInternal(serviceInstance)
-            vcenter.disks*.delete()
-            vcenter.disks.clear()
-            disks.each { Disk disk ->
-                vcenter.addToDisks(disk)
-                disk.vcenter = vcenter
-                disk.save()
+            if(persist) {
+                persistDisks(vcenter, disks)
+                vcenter.disks
+            } else {
+                disks
             }
-            vcenter.save()
-            vcenter.disks
         } catch(Exception e) {
             log.error "Error getting hosts for vCenter ${vcenter.ip}"
 //            StackTraceUtils.printSanitizedStackTrace(e)
             throw e
         } finally {
-            closeConnection(vcenter)
+            if(!manualConnectionManagement) closeConnection(vcenter)
         }
     }
 }

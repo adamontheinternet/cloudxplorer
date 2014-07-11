@@ -8,6 +8,9 @@ import grails.transaction.Transactional
 @Transactional
 class SshService {
 
+    /*
+    TODO - Something in here is not thread safe
+     */
     public String runCommand(String hostname, String username, String password, String command)
     {
         Connection conn

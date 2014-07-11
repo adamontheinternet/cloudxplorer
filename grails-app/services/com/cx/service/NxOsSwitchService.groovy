@@ -33,10 +33,8 @@ class NxOsSwitchService {
         isVersionSupported(firstLine)
     }
 
-    public Collection<Vsan> getVsans(NxOsSwitch nxOsSwitch) {
-        String command = getCommand("Vsans.txt")
-        String commandResult = sshService.runCommand(nxOsSwitch.ip, nxOsSwitch.credential.username, nxOsSwitch.credential.password, command)
-        Collection<Vsan> vsans = nxOsSwitchResponseInterpreterService.interpretVsansResponse(commandResult)
+    public void persistVsans(NxOsSwitch nxOsSwitch, Collection<Vsan> vsans) {
+        log.info "Persist ${vsans.size()} vsans for NX-OS switch $nxOsSwitch"
         nxOsSwitch.vsans*.delete()
         nxOsSwitch.vsans.clear()
         vsans.each { Vsan vsan ->
@@ -45,13 +43,22 @@ class NxOsSwitchService {
             vsan.save()
         }
         nxOsSwitch.save()
-        nxOsSwitch.vsans
     }
 
-    public Collection<Zoneset> getZones(NxOsSwitch nxOsSwitch) {
-        String command = getCommand("Zones.txt")
+    public Collection<Vsan> getVsans(NxOsSwitch nxOsSwitch, boolean persist = true) {
+        String command = getCommand("Vsans.txt")
         String commandResult = sshService.runCommand(nxOsSwitch.ip, nxOsSwitch.credential.username, nxOsSwitch.credential.password, command)
-        Collection<Zoneset> zonesets = nxOsSwitchResponseInterpreterService.interpretZonesResponse(commandResult)
+        Collection<Vsan> vsans = nxOsSwitchResponseInterpreterService.interpretVsansResponse(commandResult)
+        if(persist) {
+            persistVsans(nxOsSwitch, vsans)
+            nxOsSwitch.vsans
+        } else {
+            vsans
+        }
+    }
+
+    public void persistZones(NxOsSwitch nxOsSwitch, Collection<Zoneset> zonesets) {
+        log.info "Persist ${zonesets.size()} zonesets for NX-OS switch $nxOsSwitch"
         nxOsSwitch.zonesets*.delete()
         nxOsSwitch.zonesets.clear()
         zonesets.each { Zoneset zoneset ->
@@ -60,6 +67,17 @@ class NxOsSwitchService {
             zoneset.save()
         }
         nxOsSwitch.save()
-        nxOsSwitch.zonesets
+    }
+
+    public Collection<Zoneset> getZones(NxOsSwitch nxOsSwitch, boolean persist = true) {
+        String command = getCommand("Zones.txt")
+        String commandResult = sshService.runCommand(nxOsSwitch.ip, nxOsSwitch.credential.username, nxOsSwitch.credential.password, command)
+        Collection<Zoneset> zonesets = nxOsSwitchResponseInterpreterService.interpretZonesResponse(commandResult)
+        if(persist) {
+            persistZones(nxOsSwitch, zonesets)
+            nxOsSwitch.zonesets
+        } else {
+            zonesets
+        }
     }
 }
