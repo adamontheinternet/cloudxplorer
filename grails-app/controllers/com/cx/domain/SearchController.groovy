@@ -111,7 +111,8 @@ class SearchController {
         long end = System.currentTimeMillis()
         long timeElapsed = ((end - start) / 1000)
 
-        flash.message =  "Device data loaded in $timeElapsed seconds."
+        Integer deviceCount = CloudElement.list().size()
+        flash.message =  "Data from $deviceCount devices loaded in $timeElapsed seconds."
         redirect(action:"index")
         return
     }

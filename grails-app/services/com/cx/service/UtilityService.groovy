@@ -104,68 +104,77 @@ class UtilityService {
             // UCS
             ucsService.manualConnectionManagement = true
             Ucs.list().each { Ucs ucs ->
-                ucsService.createOrGetSession(ucs)
-                ucsService.createOrGetRestClient(ucs)
+                ucsService.openSession(ucs)
             }
             Map<Ucs,Collection<Blade>> ucsBlades = [:]
             Map<Ucs,Collection<Blade>> ucsServers = [:]
             Map<Ucs,Collection<Blade>> ucsVlans = [:]
             Map<Ucs,Collection<Blade>> ucsVsans = [:]
             // Initiate UCS async tasks
+            Ucs.list().each { Ucs ucs ->
+                Promise promise = task {
+                    ucsBlades.put(ucs, ucsService.getBlades(ucs, false))
+                    ucsServers.put(ucs, ucsService.getServers(ucs, false))
+                    ucsVlans.put(ucs, ucsService.getVlans(ucs, false))
+                    ucsVsans.put(ucs, ucsService.getVsans(ucs, false))
+                }
+                tasks << promise
+            }
+
+            /*
+            TODO - For this to work I think I need to open a new session / unique UCS cookie for every request... Doesnt seem like they can be shared
+            Not really slow anyways so probably not worth pursuing
+             */
 //            Ucs.list().each { Ucs ucs ->
+//                tasks << task { ucsBlades.put(ucs, ucsService.getBlades(ucs, false)) }
+//                tasks << task { ucsServers.put(ucs, ucsService.getServers(ucs, false)) }
+//                tasks << task { ucsVlans.put(ucs, ucsService.getVlans(ucs, false)) }
+//                tasks << task { ucsVsans.put(ucs, ucsService.getVsans(ucs, false)) }
+//            }
+
+            // NX OS Switch
+            Map<NxOsSwitch,Collection<Zoneset>> nxOsSwitchZones = [:]
+            Map<NxOsSwitch,Collection<Vsan>> nxOsSwitchVsans = [:]
+            // Initiate NX OS Switch async tasks
+//            NxOsSwitch.list().each { NxOsSwitch nxOsSwitch ->
 //                Promise promise = task {
-//                    ucsBlades.put(ucs, ucsService.getBlades(ucs, false))
-//                    ucsServers.put(ucs, ucsService.getServers(ucs, false))
-//                    ucsVlans.put(ucs, ucsService.getVlans(ucs, false))
-//                    ucsVsans.put(ucs, ucsService.getVsans(ucs, false))
+//                    nxOsSwitchZones.put(nxOsSwitch, nxOsSwitchService.getZones(nxOsSwitch, false))
+//                    nxOsSwitchVsans.put(nxOsSwitch, nxOsSwitchService.getVsans(nxOsSwitch, false))
 //                }
 //                tasks << promise
 //            }
-            Ucs.list().each { Ucs ucs ->
-                tasks << task { ucsBlades.put(ucs, ucsService.getBlades(ucs, false)) }
-                tasks << task { ucsServers.put(ucs, ucsService.getServers(ucs, false)) }
-                tasks << task { ucsVlans.put(ucs, ucsService.getVlans(ucs, false)) }
-                tasks << task { ucsVsans.put(ucs, ucsService.getVsans(ucs, false)) }
+            /*
+            TODO - Something in the open terminal code is not thread safe
+             */
+            NxOsSwitch.list().each { NxOsSwitch nxOsSwitch ->
+                tasks << task { nxOsSwitchZones.put(nxOsSwitch, nxOsSwitchService.getZones(nxOsSwitch, false)) }
+                tasks << task { nxOsSwitchVsans.put(nxOsSwitch, nxOsSwitchService.getVsans(nxOsSwitch, false)) }
             }
 
-            // NX OS Switch
-//            Map<NxOsSwitch,Collection<Zoneset>> nxOsSwitchZones = [:]
-//            Map<NxOsSwitch,Collection<Vsan>> nxOsSwitchVsans = [:]
-//            // Initiate NX OS Switch async tasks
-////            NxOsSwitch.list().each { NxOsSwitch nxOsSwitch ->
-////                Promise promise = task {
-////                    nxOsSwitchZones.put(nxOsSwitch, nxOsSwitchService.getZones(nxOsSwitch, false))
-////                    nxOsSwitchVsans.put(nxOsSwitch, nxOsSwitchService.getVsans(nxOsSwitch, false))
-////                }
-////                tasks << promise
-////            }
-//            NxOsSwitch.list().each { NxOsSwitch nxOsSwitch ->
-//                tasks << task { nxOsSwitchZones.put(nxOsSwitch, nxOsSwitchService.getZones(nxOsSwitch, false)) }
-//                tasks << task { nxOsSwitchVsans.put(nxOsSwitch, nxOsSwitchService.getVsans(nxOsSwitch, false)) }
-//            }
-//
-//            // vCenter
-//            vcenterService.manualConnectionManagement = true
+            // vCenter
+            vcenterService.manualConnectionManagement = true
+            Vcenter.list().each { Vcenter vcenter ->
+                vcenterService.openConnection(vcenter)
+            }
+            Map<Vcenter,Collection<VirtualMachine>> vcenterVirtualMachines = [:]
+            Map<Vcenter,Collection<Host>> vcenterHosts = [:]
+            Map<Vcenter,Collection<Disk>> vcenterDisks = [:]
+
+            // Initiate vCenter async tasks
 //            Vcenter.list().each { Vcenter vcenter ->
-//                vcenterService.openConnection(vcenter)
+//                Promise promise = task {
+//                    vcenterVirtualMachines.put(vcenter, vcenterService.getVirtualMachines(vcenter, false))
+//                    vcenterHosts.put(vcenter, vcenterService.getHosts(vcenter, false))
+//                    vcenterDisks.put(vcenter, vcenterService.getDisks(vcenter, false))
+//                }
+//                tasks << promise
 //            }
-//            Map<Vcenter,Collection<VirtualMachine>> vcenterVirtualMachines = [:]
-//            Map<Vcenter,Collection<Host>> vcenterHosts = [:]
-//            Map<Vcenter,Collection<Disk>> vcenterDisks = [:]
-//            // Initiate vCenter async tasks
-////            Vcenter.list().each { Vcenter vcenter ->
-////                Promise promise = task {
-////                    vcenterVirtualMachines.put(vcenter, vcenterService.getVirtualMachines(vcenter, false))
-////                    vcenterHosts.put(vcenter, vcenterService.getHosts(vcenter, false))
-////                    vcenterDisks.put(vcenter, vcenterService.getDisks(vcenter, false))
-////                }
-////                tasks << promise
-////            }
-//            Vcenter.list().each { Vcenter vcenter ->
-//                tasks << task { vcenterVirtualMachines.put(vcenter, vcenterService.getVirtualMachines(vcenter, false)) }
-//                tasks << task { vcenterHosts.put(vcenter, vcenterService.getHosts(vcenter, false)) }
-//                tasks << task { vcenterDisks.put(vcenter, vcenterService.getDisks(vcenter, false)) }
-//            }
+
+            Vcenter.list().each { Vcenter vcenter ->
+                tasks << task { vcenterVirtualMachines.put(vcenter, vcenterService.getVirtualMachines(vcenter, false)) }
+                tasks << task { vcenterHosts.put(vcenter, vcenterService.getHosts(vcenter, false)) }
+                tasks << task { vcenterDisks.put(vcenter, vcenterService.getDisks(vcenter, false)) }
+            }
 
 
             // Wait for all device data tasks
@@ -191,26 +200,26 @@ class UtilityService {
                 ucsService.destroySession(ucs)
             }
             // NX-OS Switch
-//            nxOsSwitchZones.each { NxOsSwitch nxOsSwitch, Collection<Zoneset> zones ->
-//                nxOsSwitchService.persistZones(nxOsSwitch.refresh(), zones)
-//            }
-//            nxOsSwitchVsans.each { NxOsSwitch nxOsSwitch, Collection<Vsan> vsans ->
-//                nxOsSwitchService.persistVsans(nxOsSwitch.refresh(), vsans)
-//            }
+            nxOsSwitchZones.each { NxOsSwitch nxOsSwitch, Collection<Zoneset> zones ->
+                nxOsSwitchService.persistZones(nxOsSwitch.refresh(), zones)
+            }
+            nxOsSwitchVsans.each { NxOsSwitch nxOsSwitch, Collection<Vsan> vsans ->
+                nxOsSwitchService.persistVsans(nxOsSwitch.refresh(), vsans)
+            }
 //            // vCenter
-//            vcenterVirtualMachines.each { Vcenter vcenter, Collection<VirtualMachine> virtualMachines ->
-//                vcenterService.persistVirtualMachines(vcenter.refresh(), virtualMachines)
-//            }
-//            vcenterHosts.each { Vcenter vcenter, Collection<Host> hosts ->
-//                vcenterService.persistHosts(vcenter.refresh(), hosts)
-//            }
-//            vcenterDisks.each { Vcenter vcenter, Collection<Disk> disks ->
-//                vcenterService.persistDisks(vcenter.refresh(), disks)
-//            }
-//            vcenterService.manualConnectionManagement = false //restore and close conns
-//            Vcenter.list().each { Vcenter vcenter ->
-//                vcenterService.closeConnection(vcenter)
-//            }
+            vcenterVirtualMachines.each { Vcenter vcenter, Collection<VirtualMachine> virtualMachines ->
+                vcenterService.persistVirtualMachines(vcenter.refresh(), virtualMachines)
+            }
+            vcenterHosts.each { Vcenter vcenter, Collection<Host> hosts ->
+                vcenterService.persistHosts(vcenter.refresh(), hosts)
+            }
+            vcenterDisks.each { Vcenter vcenter, Collection<Disk> disks ->
+                vcenterService.persistDisks(vcenter.refresh(), disks)
+            }
+            vcenterService.manualConnectionManagement = false //restore and close conns
+            Vcenter.list().each { Vcenter vcenter ->
+                vcenterService.closeConnection(vcenter)
+            }
         } catch(Throwable t) {
             log.error "Error loading device data $t"
             if(retry) {

@@ -1,7 +1,7 @@
 Infra:
 Concurrent data fetch for search
 Code review and clean up old search artifacts?
-Data export?
+Move result sorting from controller to GSP so it works in search page also
 
 vCenter:
 NFS support

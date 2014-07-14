@@ -28,6 +28,7 @@ class VcenterService {
 
     ConfigurationService configurationService
     VcenterConnectionService vcenterConnectionService
+    // TODO - Make this consistent where conn must be opened and closed (currently auto open and manual close)
     public Boolean manualConnectionManagement = false // Use to keep a connection open
 
     private String buildVcenterUrl(String ip) {

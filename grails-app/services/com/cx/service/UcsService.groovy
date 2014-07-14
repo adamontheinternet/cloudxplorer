@@ -18,19 +18,30 @@ class UcsService {
     private Map<String,String> ucsSessionMap = [:]
     private Map<String,RESTClient> ucsClientMap = [:]
 
+    // TODO - Make this consistent where conn must be opened and closed (currently auto open and manual close)
+    // Probably should make more user friendly openConn type method too
     public Boolean manualConnectionManagement = false // Use to keep a connection open
 
     /*
     Infrastructure
      */
-    public RESTClient createOrGetRestClient(Ucs ucs) throws Exception {
+    public void openSession(Ucs ucs) throws Exception {
+        try {
+            String cookie =  createOrGetSession(ucs)
+            RESTClient restClient = createOrGetRestClient(ucs)
+        } catch(Exception e) {
+            destroySession(ucs)
+        }
+    }
+
+    private RESTClient createOrGetRestClient(Ucs ucs) throws Exception {
         if(!ucsClientMap[ucs.ip]) {
             ucsClientMap[ucs.ip] = new RESTClient(getUrl(ucs.ip))
         }
         ucsClientMap[ucs.ip]
     }
 
-    public String createOrGetSession(Ucs ucs) throws Exception {
+    private String createOrGetSession(Ucs ucs) throws Exception {
         if(!ucsSessionMap[ucs.ip]) {
             ucsSessionMap[ucs.ip] = createSession(ucs)
         }
