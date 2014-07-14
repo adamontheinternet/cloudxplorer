@@ -29,7 +29,7 @@
     <h1>${ucsBlades.key} Blades</h1>
     <table>
         <tr><th>DN</th><th>Assigned To</th></tr>
-        <g:each in="${ucsBlades.value}" var="blade">
+        <g:each in="${ucsBlades.value.sort{it.dn}}" var="blade">
             <tr><td>${blade.dn}</td><td>${blade.assignedTo}</td></tr>
         </g:each>
     </table>
@@ -39,7 +39,7 @@
     <h1>${ucsServers.key} Servers</h1>
     <table>
         <tr><th>DN</th><th>Assign State</th><th>Config State</th><th>Oper State</th><th>Assoc State</th></tr>
-        <g:each in="${ucsServers.value}" var="server">
+        <g:each in="${ucsServers.value.sort{it.dn}}" var="server">
             <tr><td>${server.dn}</td><td>${server.assignState}</td><td>${server.configState}</td><td>${server.operState}</td><td>${server.assocState}</td></tr>
         </g:each>
     </table>
@@ -49,7 +49,7 @@
     <h1>${ucsVlans.key} Vlans</h1>
     <table>
         <tr><th>ID</th><th>Name</th></tr>
-        <g:each in="${ucsVlans.value}" var="vlan">
+        <g:each in="${ucsVlans.value.sort{it.networkId}}" var="vlan">
             <tr><td>${vlan.networkId}</td><td>${vlan.name}</td></tr>
         </g:each>
     </table>
@@ -59,7 +59,7 @@
     <h1>${ucsVsans.key} Vsans</h1>
     <table>
         <tr><th>ID</th><th>Name</th><th>DN</th><th>Switch</th></tr>
-        <g:each in="${ucsVsans.value}" var="vsan">
+        <g:each in="${ucsVsans.value.sort{it.vsan}}" var="vsan">
             <tr><td>${vsan.vsan}</td><td>${vsan.name}</td><td>${vsan.dn}</td><td>${vsan.switchId}</td></tr>
         </g:each>
     </table>
@@ -69,7 +69,7 @@
     <h1>${switchZones.key} Zones</h1>
     <table>
         <tr><th>VSAN</th><th>Name</th><th>Ports</th><th>Zoneset Name</th></tr>
-        <g:each in="${switchZones.value}" var="zone">
+        <g:each in="${switchZones.value.sort{it.vsan}}" var="zone">
             <tr><td>${zone.vsan}</td><td>${zone.name}</td><td>${zone.ports.collect{it.wwn}}</td><td>${zone.zoneset.name}</td></tr>
         </g:each>
     </table>
@@ -79,7 +79,7 @@
     <h1>${switchVsans.key} Vsans</h1>
     <table>
         <tr><th>VSAN</th><th>Name</th></tr>
-        <g:each in="${switchVsans.value}" var="vsan">
+        <g:each in="${switchVsans.value.sort{it.vsan}}" var="vsan">
             <tr><td>${vsan.vsan}</td><td>${vsan.name}</td></tr>
         </g:each>
     </table>
@@ -89,7 +89,7 @@
     <h1>${vcenterVirtualMachines.key} Virtual Machines</h1>
     <table>
         <tr><th>Name</th><th>Host</th><th>Power State</th><th>Template</th></tr>
-        <g:each in="${vcenterVirtualMachines.value}" var="virtualMachine">
+        <g:each in="${vcenterVirtualMachines.value.sort{it.name}}" var="virtualMachine">
             <tr><td>${virtualMachine.name}</td><td>${virtualMachine.host}</td><td>${virtualMachine.powerState}</td><td>${virtualMachine.template}</td></tr>
         </g:each>
     </table>
@@ -99,7 +99,7 @@
     <h1>${vcenterHosts.key} Hosts</h1>
     <table>
         <tr><th>Name</th><th>Cluster</th><th>OS</th><th>Power State</th><th>Connection State</th><th>Maintenance Mode</th></tr>
-        <g:each in="${vcenterHosts.value}" var="host">
+        <g:each in="${vcenterHosts.value.sort{it.name}}" var="host">
             <tr><td>${host.name}</td><td>${host.cluster}</td><td>${host.os}</td><td>${host.powerState}</td><td>${host.connectionState}</td><td>${host.maintenanceMode}</td></tr>
         </g:each>
     </table>

@@ -27,7 +27,7 @@
 
 <table>
     <tr><th>ID</th><th>Name</th></tr>
-    <g:each in="${vlans}" var="vlan">
+    <g:each in="${vlans.sort{it.networkId}}" var="vlan">
         <tr><td>${vlan.networkId}</td><td>${vlan.name}</td></tr>
     </g:each>
 </table>

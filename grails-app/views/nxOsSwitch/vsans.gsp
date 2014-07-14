@@ -27,7 +27,7 @@
 
 <table>
     <tr><th>VSAN</th><th>Name</th></tr>
-    <g:each in="${vsans}" var="vsan">
+    <g:each in="${vsans.sort{it.vsan}}" var="vsan">
         <tr><td>${vsan.vsan}</td><td>${vsan.name}</td></tr>
     </g:each>
 </table>

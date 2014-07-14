@@ -27,7 +27,7 @@
 
 <table>
     <tr><th>Name (Host_LUN)</th><th>LUN</th><th>Datastore</th><th>Disk (Datastore) Capacity GB</th><th>Datastore Version (Block Size MB)</th><th>UUID</th></tr>
-    <g:each in="${disks}" var="disk">
+    <g:each in="${disks.sort{it.name}}" var="disk">
         <g:if test="${disk.datastore}">
             <tr><td>${disk.name}</td><td>${disk.lun}</td><td>${disk.datastore}</td><td>${disk.capacity} (${disk.datastoreCapacity})</td><td>VMFS${disk.datastoreVersion} (${disk.datastoreBlockSize})</td><td>${disk.uuid}</td></tr>
         </g:if>

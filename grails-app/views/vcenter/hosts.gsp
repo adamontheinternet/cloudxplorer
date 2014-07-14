@@ -27,7 +27,7 @@
 
 <table>
     <tr><th>Name</th><th>Cluster</th><th>OS</th><th>Power State</th><th>Connection State</th><th>Maintenance Mode</th></tr>
-    <g:each in="${hosts}" var="host">
+    <g:each in="${hosts.sort{it.name}}" var="host">
         <tr><td>${host.name}</td><td>${host.cluster}</td><td>${host.os}</td><td>${host.powerState}</td><td>${host.connectionState}</td><td>${host.maintenanceMode}</td></tr>
     </g:each>
 </table>

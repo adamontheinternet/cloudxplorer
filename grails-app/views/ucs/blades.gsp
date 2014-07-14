@@ -27,7 +27,7 @@
 
 <table>
     <tr><th>DN</th><th>Assigned To</th></tr>
-    <g:each in="${blades}" var="blade">
+    <g:each in="${blades.sort{it.dn}}" var="blade">
         <tr><td>${blade.dn}</td><td>${blade.assignedTo}</td></tr>
     </g:each>
 </table>

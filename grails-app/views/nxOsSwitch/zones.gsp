@@ -27,7 +27,7 @@
 
 <table>
     <tr><th>VSAN</th><th>Name</th><th>Ports</th><th>Zoneset Name</th></tr>
-    <g:each in="${zonesets}" var="zoneset">
+    <g:each in="${zonesets.sort{it.vsan}}" var="zoneset">
         <g:each in="${zoneset.zones}" var="zone">
             <tr><td>${zone.vsan}</td><td>${zone.name}</td><td>${zone.ports.collect{it.wwn}}</td><td>${zoneset.name}</td></tr>
         </g:each>

@@ -26,7 +26,7 @@
 </g:if>
 <table>
     <tr><th>DN</th><th>Assign State</th><th>Config State</th><th>Oper State</th><th>Assoc State</th></tr>
-    <g:each in="${servers}" var="server">
+    <g:each in="${servers.sort{it.dn}}" var="server">
         <tr><td>${server.dn}</td><td>${server.assignState}</td><td>${server.configState}</td><td>${server.operState}</td><td>${server.assocState}</td></tr>
     </g:each>
 </table>

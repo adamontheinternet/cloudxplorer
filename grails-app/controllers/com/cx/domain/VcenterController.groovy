@@ -115,7 +115,7 @@ class VcenterController {
             log.info "Find virtual machines for ${vcenterInstance.ip}"
             if(vcenterInstance.connectionVerified) {
                 Collection<VirtualMachine> virtualMachines = vcenterService.getVirtualMachines(vcenterInstance)
-                returnMap["virtualMachines"] = virtualMachines.sort{it.name}
+                returnMap["virtualMachines"] = virtualMachines
             } else {
                 log.info "Connection not verified for vCenter ${vcenterInstance.ip}"
                 returnMap["error"] = "Connection not verified for vCenter ${vcenterInstance.ip}"
@@ -134,7 +134,7 @@ class VcenterController {
             log.info "Find hosts for ${vcenterInstance.ip}"
             if(vcenterInstance.connectionVerified) {
                 Collection<Host> hosts = vcenterService.getHosts(vcenterInstance)
-                returnMap["hosts"] = hosts.sort{it.name}
+                returnMap["hosts"] = hosts
             } else {
                 log.info "Connection not verified for vCenter ${vcenterInstance.ip}"
                 returnMap["error"] = "Connection not verified for vCenter ${vcenterInstance.ip}"
@@ -153,7 +153,7 @@ class VcenterController {
             log.info "Find disks for ${vcenterInstance.ip}"
             if(vcenterInstance.connectionVerified) {
                 Collection<Disk> disks = vcenterService.getDisks(vcenterInstance)
-                returnMap["disks"] = disks.sort{it.name}
+                returnMap["disks"] = disks
             } else {
                 log.info "Connection not verified for vCenter ${vcenterInstance.ip}"
                 returnMap["error"] = "Connection not verified for vCenter ${vcenterInstance.ip}"

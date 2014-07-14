@@ -115,7 +115,7 @@ class UcsController {
             log.info "Find blades for ${ucsInstance.ip}"
             if(ucsInstance.connectionVerified) {
                 Collection<Blade> blades = ucsService.getBlades(ucsInstance)
-                returnMap["blades"] = blades.sort{it.dn}
+                returnMap["blades"] = blades
             } else {
                 log.info "Connection not verified for UCS ${ucsInstance.ip}"
                 returnMap["error"] = "Connection not verified for UCS ${ucsInstance.ip}"
@@ -134,7 +134,7 @@ class UcsController {
             log.info "Find vlans for ${ucsInstance.ip}"
             if(ucsInstance.connectionVerified) {
                 Collection<Vlan> vlans = ucsService.getVlans(ucsInstance)
-                returnMap["vlans"] = vlans.sort{it.networkId}
+                returnMap["vlans"] = vlans
             } else {
                 log.info "Connection not verified for UCS ${ucsInstance.ip}"
                 returnMap["error"] = "Connection not verified for UCS ${ucsInstance.ip}"
@@ -153,7 +153,7 @@ class UcsController {
             log.info "Find vsans for ${ucsInstance.ip}"
             if(ucsInstance.connectionVerified) {
                 Collection<Map> vsans = ucsService.getVsans(ucsInstance)
-                returnMap["vsans"] = vsans.sort{it.vsan}
+                returnMap["vsans"] = vsans
             } else {
                 log.info "Connection not verified for UCS ${ucsInstance.ip}"
                 returnMap["error"] = "Connection not verified for UCS ${ucsInstance.ip}"
@@ -173,7 +173,7 @@ class UcsController {
             log.info "Find servers for ${ucsInstance.ip}"
             if(ucsInstance.connectionVerified) {
                 Collection<Server> servers = ucsService.getServers(ucsInstance)
-                returnMap["servers"] = servers.sort{it.dn}
+                returnMap["servers"] = servers
             } else {
                 log.info "Connection not verified for UCS ${ucsInstance.ip}"
                 returnMap["error"] = "Connection not verified for UCS ${ucsInstance.ip}"
